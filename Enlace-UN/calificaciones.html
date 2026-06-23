@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos adicionales para la página de calificaciones */
+        .page-container {
+            padding: 24px 24px 32px 20px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .page-header {
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .page-title {
+            font-size: 32px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+            max-width: none;
+            margin: 0;
+            width: 100%;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            width: 100%;
+            align-content: flex-start;
+        }
+
+        .info-card {
+            background: var(--bg-white);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            flex: 0 0 220px;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .info-card-icon.primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f1f3f 100%);
+        }
+
+        .info-card-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .info-card-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .schedule-controls {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .control-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .control-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            min-width: 160px;
+        }
+
+        .control-select:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(27, 45, 91, 0.08);
+        }
+
+        .control-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(27, 45, 91, 0.12);
+        }
+
+        .schedule-wrapper {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .schedule-table-container {
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schedule-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 13px 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .schedule-table td {
+            padding: 13px 12px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .schedule-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .schedule-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .grade-badge {
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: white;
+            font-size: 12px;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+        }
+
+        .grade-badge.excellent {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .grade-badge.good {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .grade-badge.average {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .grade-badge.low {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .subject-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .info-cards {
+                width: 100%;
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .schedule-controls {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .control-select {
+                min-width: 100%;
+            }
+
+            .schedule-table-container {
+                font-size: 12px;
+            }
+
+            .schedule-table td, .schedule-table th {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-image">
+                    <img src="img/UNazul.png" alt="UN Logo" class="logo-img">   
+                </div>
+                <div class="logo-text">
+                    <h1>Universidad</h1>
+                    <p>del Norte</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="home.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Horarios.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Horarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="calificaciones.html" class="nav-link active">
+                        <i class="fas fa-star"></i>
+                        <span>Calificaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="kardex.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Kardex</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-wallet"></i>
+                        <span>Finanzas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tareas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Exámenes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensajes</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-divider"></div>
+
+            <ul class="nav-list">
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile-mini">
+                <img src="img/UNazul.png" alt="Alumno" class="avatar-mini">
+                <div class="user-info-mini">
+                    <p class="name">Alumno</p>
+                    <p class="role">Ingeniería en Sistemas</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <button class="icon-btn theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="icon-btn logout-btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- PAGE CONTENT -->
+        <div class="page-container">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <h1 class="page-title">Calificaciones</h1>
+                <p class="page-subtitle"></p>
+            </div>
+
+            <!-- INFO CARDS -->
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-card-icon primary">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="info-card-title">Promedio</h4>
+                    <p class="info-card-value">4.2</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4 class="info-card-title">Aprobadas</h4>
+                    <p class="info-card-value">5</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon primary">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 class="info-card-title">Pendientes</h4>
+                    <p class="info-card-value">0</p>
+                </div>
+            </div>
+
+            <!-- CONTENT WRAPPER -->
+            <div class="content-wrapper">
+                <!-- SCHEDULE WRAPPER -->
+                <div class="schedule-wrapper">
+                <!-- CONTROLS -->
+                <div class="schedule-controls">
+                    <div class="control-group">
+                        <label class="control-label">Tetramestre</label>
+                        <select class="control-select" id="semesterSelect">
+                            <option value="2024-I">2024 - Tetramestre I</option>
+                            <option value="2024-II">2024 - Tetramestre II</option>
+                            <option value="2025-I" selected>2025 - Tetramestre I</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SCHEDULE TABLE -->
+                <div class="schedule-table-container">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Asignatura</th>
+                                <th>Calificación</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="subject-name">Cálculo I</span></td>
+                                <td><span class="grade-badge excellent">4.5</span></td>
+                                <td>Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td><span class="subject-name">Programación</span></td>
+                                <td><span class="grade-badge excellent">4.3</span></td>
+                                <td>Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td><span class="subject-name">Física</span></td>
+                                <td><span class="grade-badge good">3.8</span></td>
+                                <td>Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td><span class="subject-name">Álgebra Lineal</span></td>
+                                <td><span class="grade-badge good">3.9</span></td>
+                                <td>Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td><span class="subject-name">Lógica</span></td>
+                                <td><span class="grade-badge excellent">4.2</span></td>
+                                <td>Aprobado</td>
+                            </tr>
+                            <tr>
+                                <td><span class="subject-name">Introducción a Sistemas</span></td>
+                                <td><span class="grade-badge good">4.0</span></td>
+                                <td>Aprobado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

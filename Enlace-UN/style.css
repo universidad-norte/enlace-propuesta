@@ -1,0 +1,761 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.root{font-family:'Inter',sans-serif;background:#f0f4f9;min-height:100vh;display:flex;flex-direction:column}
+
+/* TOP HEADER */
+.header{background:#1b2d5b;padding:0 32px;display:flex;align-items:stretch;justify-content:space-between;height:72px}
+.header-left{display:flex;align-items:center;gap:20px}
+.logo-container{display:flex;align-items:center;gap:16px;text-decoration:none}
+.un-logo-svg{width:46px;height:46px;flex-shrink:0}
+.un-wordmark{display:flex;flex-direction:column}
+.un-wordmark .w1{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:0.1em;line-height:1.2}
+.un-wordmark .w2{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:0.1em;line-height:1.2}
+.un-wordmark .w3{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:0.08em;margin-top:2px}
+.header-divider{width:1px;height:32px;background:rgba(255,255,255,0.15)}
+.cambiando-tag{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:0.08em;font-style:italic}
+
+.header-right{display:flex;align-items:center;gap:20px}
+.meta-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 14px;display:flex;align-items:center;gap:8px}
+.meta-pill .date{font-size:12px;color:rgba(255,255,255,0.6);font-family:'Montserrat',sans-serif}
+.meta-pill .time{font-size:12px;font-weight:600;color:rgba(255,255,255,0.85);font-family:'Montserrat',sans-serif}
+.visits-pill{background:rgba(200,16,46,0.15);border:1px solid rgba(200,16,46,0.3);border-radius:20px;padding:5px 14px;display:flex;align-items:center;gap:6px}
+.visits-pill i{font-size:13px;color:#e8455f}
+.visits-pill span{font-size:11px;color:rgba(255,255,255,0.5);font-family:'Montserrat',sans-serif}
+.visits-pill b{font-size:12px;color:#e8455f;font-weight:700}
+
+/* NAV */
+.nav{background:#162348;display:flex;align-items:stretch;padding:0 24px;border-bottom:3px solid #c8102e;gap:2px}
+.nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.5);padding:10px 12px;cursor:pointer;border:none;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all 0.2s;white-space:nowrap;background:transparent}
+.nav-btn:hover{color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.05)}
+
+
+.nav-btn.active{color:#fff;border-bottom-color:#c8102e}
+
+/* ANNOUNCEMENT */
+.announcement{background:linear-gradient(90deg,#c8102e 0%,#a00d25 100%);padding:9px 32px;display:flex;align-items:center;gap:10px}
+.announcement i{font-size:15px;color:rgba(255,255,255,0.8)}
+.announcement span{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;color:#fff;text-transform:uppercase}
+.announcement-arrow{margin-left:auto;font-size:12px;color:rgba(255,255,255,0.5)}
+
+/* BODY */
+.body{flex:1;display:flex}
+
+/* LEFT PANEL */
+.left-panel{flex:1;background:#1b2d5b;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 48px;overflow:hidden;gap:32px}
+
+.bg-pattern{position:absolute;inset:0;opacity:0.04}
+.brand-block{z-index:1;display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
+
+.enlace-card{background:rgba(255,255,255,0.97);border-radius:20px;padding:28px 36px;display:flex;align-items:center;gap:20px;box-shadow:0 20px 60px rgba(0,0,0,0.4);width:100%;max-width:340px}
+.enlace-icon-wrap{width:64px;height:64px;background:#1b2d5b;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.enlace-card-image{width:100%;height:100%;object-fit:contain;border-radius:10px}
+.enlace-info{}
+.enlace-title{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:#1b2d5b;letter-spacing:-0.01em;line-height:1}
+.enlace-title span{color:#c8102e}
+.enlace-subtitle{font-size:11px;color:#8a9ab5;font-family:'Montserrat',sans-serif;font-weight:500;letter-spacing:0.04em;margin-top:4px;text-transform:uppercase}
+
+.desc-text{font-size:13px;color:rgba(255,255,255,0.45);text-align:center;max-width:300px;line-height:1.75;z-index:1}
+.desc-text strong{color:rgba(255,255,255,0.75);font-weight:500}
+
+.feature-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;z-index:1}
+.chip{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,0.55);font-family:'Montserrat',sans-serif;display:flex;align-items:center;gap:5px}
+.chip i{font-size:12px}
+
+.glow-orb{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(30,77,161,0.25) 0%,transparent 70%);bottom:-80px;left:-60px;pointer-events:none}
+.glow-orb2{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,0.1) 0%,transparent 70%);top:-50px;right:-30px;pointer-events:none}
+
+/* RIGHT PANEL */
+.right-panel{width:400px;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:44px 40px;border-left:1px solid #e5eaf2}
+
+.login-top{margin-bottom:30px}
+.login-eyebrow{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c8102e;margin-bottom:8px}
+.login-heading{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:#111827;line-height:1.2;margin-bottom:6px}
+.login-sub{font-size:13px;color:#6b7a8d;line-height:1.5}
+
+.field-wrap{margin-bottom:18px}
+.field-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#8a9ab5;margin-bottom:7px;display:flex;align-items:center;gap:4px}
+.field-input-row{position:relative;display:flex;align-items:center}
+.field-input-row i{position:absolute;left:13px;font-size:16px;color:#c0cad8}
+.field-input-row input{width:100%;height:46px;border:1.5px solid #e0e6ef;border-radius:10px;padding:0 14px 0 40px;font-family:'Inter',sans-serif;font-size:14px;color:#1a2340;background:#f8fafc;outline:none;transition:all 0.2s}
+.field-input-row input:focus{border-color:#1b2d5b;background:#fff;box-shadow:0 0 0 3px rgba(27,45,91,0.08)}
+.field-input-row input::placeholder{color:#c5cedd}
+.field-hint{font-size:11px;color:#b0bac8;margin-top:5px;font-family:'Montserrat',sans-serif;display:flex;align-items:center;gap:4px}
+.field-hint code{background:#eef2f8;color:#1b2d5b;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600}
+
+.btn-primary{width:100%;height:48px;background:#1b2d5b;border:none;border-radius:10px;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.05em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;transition:all 0.2s;text-transform:uppercase}
+.btn-primary:hover{background:#c8102e;transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,16,46,0.25)}
+.btn-primary:active{transform:translateY(0)}
+
+.or-row{display:flex;align-items:center;gap:12px;margin:20px 0}
+.or-row::before,.or-row::after{content:'';flex:1;height:1px;background:#edf0f5}
+.or-row span{font-size:11px;font-family:'Montserrat',sans-serif;color:#c0cad8;text-transform:uppercase;letter-spacing:0.06em}
+
+.btn-secondary{width:100%;height:44px;background:#fff;border:1.5px solid #d4dbe8;border-radius:10px;color:#1b2d5b;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;letter-spacing:0.03em}
+.btn-secondary:hover{border-color:#1b2d5b;background:#f5f8ff}
+
+.recover-note{font-size:11px;color:#9ba8b8;text-align:center;margin-top:10px;line-height:1.6;font-family:'Inter',sans-serif}
+
+.privacy-strip{margin-top:24px;padding-top:18px;border-top:1px dashed #edf0f5;font-size:10px;color:#b0bac8;text-align:center;line-height:1.6;font-family:'Inter',sans-serif;display:flex;align-items:flex-start;gap:6px}
+.privacy-strip i{font-size:12px;flex-shrink:0;margin-top:1px}
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+
+[data-theme="dark"] {
+    --bg-light: #1a1a2e;
+    --bg-white: #0b1b4d;
+    --text-dark: #f5f7fb;
+    --text-muted: #b0b8c9;
+}
+
+[data-theme="dark"] .root {
+    background: #1a1a2e;
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .header {
+    background: #0b1b4d;
+}
+
+[data-theme="dark"] .nav {
+    background: #0a1840;
+    border-bottom-color: rgba(200, 16, 46, 0.3);
+}
+
+[data-theme="dark"] .nav-btn {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .nav-btn:hover {
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .nav-btn.active {
+    color: #fff;
+}
+
+[data-theme="dark"] .announcement {
+    background: linear-gradient(90deg, #8b0a1f 0%, #6d0818 100%);
+}
+
+[data-theme="dark"] .left-panel {
+    background: #0b1b4d;
+}
+
+[data-theme="dark"] .enlace-card {
+    background: rgba(26, 26, 46, 0.9);
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .enlace-icon-wrap {
+    background: #162348;
+}
+
+[data-theme="dark"] .enlace-title {
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .desc-text {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="dark"] .desc-text strong {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .chip {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] .right-panel {
+    background: #1a2a4a;
+    border-left-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .field-input-row input {
+    background: #0b1b4d;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .field-input-row input:focus {
+    background: #132856;
+    border-color: #6d5ce7;
+    box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.15);
+}
+
+[data-theme="dark"] .field-input-row input::placeholder {
+    color: #7a8a9e;
+}
+
+[data-theme="dark"] .field-label {
+    color: #a8b4c5;
+}
+
+[data-theme="dark"] .field-hint {
+    color: #8a95a8;
+}
+
+[data-theme="dark"] .field-hint code {
+    background: #0b1b4d;
+    color: #9cc4ff;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: #0b1b4d;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: #132856;
+}
+
+[data-theme="dark"] .recover-note {
+    color: #8a95a8;
+}
+
+[data-theme="dark"] .login-heading {
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .login-sub {
+    color: #a8b4c5;
+}
+
+[data-theme="dark"] .or-row::before,
+[data-theme="dark"] .or-row::after {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .or-row span {
+    color: #7a8a9e;
+}
+
+[data-theme="dark"] .privacy-strip {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    color: #8a95a8;
+}
+
+[data-theme="dark"] .meta-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .meta-pill .date {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .meta-pill .time {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* FOOTER */
+.footer{background:#101c35;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-quote{font-size:10px;color:rgba(255,255,255,0.3);font-style:italic;max-width:520px;line-height:1.5;font-family:'Inter',sans-serif}
+.footer-copy{font-size:10px;color:rgba(255,255,255,0.2);font-family:'Montserrat',sans-serif;white-space:nowrap}
+
+/* --- Estilos para el Menú Desplegable --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1b2d5b; 
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 100;
+    border-radius: 4px;
+    top: 100%; 
+    left: 0;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ======================================================== */
+/* --- CORRECCIONES APLICADAS PARA PÁGINAS DE CONTENIDO --- */
+/* ======================================================== */
+
+.content-page {
+    background: #ffffff; /* Ajustado para mayor legibilidad */
+    border-radius: 12px;
+    padding: 40px;
+    color: #475569; /* Texto oscuro */
+    font-family: sans-serif;
+    display: block; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.page-title {
+    color: #1b2d5b; /* Azul corporativo */
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-left: 4px solid #c8102e; 
+    padding-left: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+.main-article h3 {
+    color: #1b2d5b; /* Azul corporativo */
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.main-article p {
+    line-height: 1.6;
+    color: #475569; /* Gris oscuro para lectura */
+    margin-bottom: 15px;
+}
+
+.lead-text {
+    font-size: 16px;
+    color: #64748b;
+}
+
+.img-placeholder {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 12px;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.layout-split {
+    display: flex !important;
+    gap: 40px;
+}
+
+.side-panel {
+    flex: 1;
+    max-width: 280px;
+}
+
+.caption-box {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.card-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-card {
+    background: #f8fafc; /* Tarjeta clara */
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.logo-grid-placeholder {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.minicard {
+    flex: 1;
+    height: 80px;
+    margin: 0;
+}
+
+/* --- Clases específicas del layout con sidebar --- */
+.content-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Para quedar por encima de los orbes del main layout */
+}
+
+.content-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+}
+
+.back-btn-wrap {
+    margin-bottom: 25px;
+}
+
+.back-btn-wrap a {
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    color: #475569;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.sidebar-heading {
+    color: #1b2d5b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.content-box {
+    flex-grow: 1;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 45px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.page-section-title {
+    color: #1b2d5b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.page-section-sub {
+    color: #c8102e;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.info-heading {
+    color: #1b2d5b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-heading span {
+    color: #c8102e;
+    font-size: 14px;
+}
+
+.para-text {
+    color: #475569;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+.para-text strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+.img-display {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    margin: 30px 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Modificadores para las tarjetas dentro del contenido (ej. Misión/Visión) */
+.card-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 25px;
+    flex: 1;
+}
+
+/* Para los fondos de la página */
+.body-relative {
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+.un-logo-img {
+    width: 42px;      /* tamaño del logo */
+    height: 42px;
+    object-fit: contain;
+    margin-right: 12px; /* separación del texto */
+    margin-left: 8px;   /* margen izquierdo */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================
+   DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   ============================================ */
+@media screen and (max-width: 850px) {
+    /* Poner los paneles uno debajo del otro */
+    .body {
+        flex-direction: column;
+    }
+
+    /* Ajustar panel derecho (Formulario) para que tome todo el ancho */
+    .right-panel {
+        width: 100%;
+        padding: 40px 24px;
+        border-left: none; /* Quitamos el borde izquierdo */
+        border-top: 1px solid #e5eaf2; /* Lo pasamos arriba */
+    }
+
+    /* Ajustar panel izquierdo (Logo) */
+    .left-panel {
+        padding: 40px 24px;
+    }
+
+    /* Ajustar encabezado para que no se desborde */
+    .header {
+        padding: 15px 20px;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Ocultar elementos secundarios en celular para limpiar la vista */
+    .header-divider, 
+    .cambiando-tag, 
+    .visits-pill {
+        display: none;
+    }
+
+    /* Menú navegable con scroll lateral en móviles */
+    .nav {
+        padding: 0 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* Centrar texto y apilar el footer */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 10px;
+    }
+}
+/* ============================================
+   SECCIÓN DE NOTICIAS
+   ============================================ */
+
+/* Contenedor principal de la página de noticias */
+.news-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Cuadrícula de tarjetas */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Tarjeta individual de noticia */
+.news-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+/* Contenedor de la imagen con efecto de recorte */
+.news-image-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden; /* Esto evita que la imagen se salga al hacer el zoom */
+}
+
+/* La imagen de la noticia con la animación al pasar el cursor */
+.news-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease; /* Tiempo de la animación */
+}
+
+.news-card:hover .news-image-wrap img {
+    transform: scale(1.08); /* Este es el efecto de movimiento/zoom */
+}
+
+/* Contenido de texto de la tarjeta */
+.news-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.news-date {
+    font-size: 11px;
+    color: #c8102e;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.news-title {
+    color: #1b2d5b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.news-excerpt {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    margin-top: auto;
+}
+
+/* Estilos específicos para la vista de la noticia abierta */
+.news-detail-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+/* Soporte Dark Mode para las Noticias */
+[data-theme="dark"] .news-card {
+    background: #0b1b4d;
+    border-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .news-title { color: #f5f7fb; }
+[data-theme="dark"] .news-excerpt { color: #a8b4c5; }
+
+/* Asegura que el botón del dropdown se comporte igual que los otros botones */
+.dropdown .nav-btn {
+    background: transparent;
+    border: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo del contenedor de los enlaces */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1b2d5b; /* Azul oscuro igual a Conócenos */
+    min-width: 220px; /* Un poco más ancho para nombres largos como Prácticas Profesionales */
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border-radius: 0 0 8px 8px; /* Redondeado solo abajo */
+    top: 100%;
+    left: 0;
+    border-top: 2px solid #c8102e; /* Línea roja decorativa superior */
+}
+
+/* Estilo de cada enlace dentro del menú */
+.dropdown-content a {
+    color: rgba(255,255,255,0.8);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding-left: 25px; /* Efecto sutil de desplazamiento al pasar el mouse */
+}

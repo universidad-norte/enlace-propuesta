@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlace-UN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Portal ENLACE — Universidad del Norte — Acceso</h2>
+
+    <div class="root">
+        <div class="header">
+            <div class="header-left">
+                
+              <div class="logo-container">
+    <img src="img/UNazul.png" alt="Logo Universidad" class="un-logo-img">
+
+    <div class="un-wordmark">
+        <div class="w1">UNIVERSIDAD</div>
+        <div class="w2">DEL NORTE</div>
+        <div class="w3">Monterrey, N.L.</div>
+    </div>
+</div>
+                
+                
+                <div class="header-divider"></div>
+                <div class="cambiando-tag">Cambiando Vidas</div>
+            </div>
+            <div class="header-right">
+               <div class="meta-pill">
+    <span class="date" id="currentDate"></span>
+    <span style="color:rgba(255,255,255,0.2)">·</span>
+    <span class="time" id="currentTime"></span>
+</div>
+                <div class="visits-pill">
+                    <i class="ti ti-users" aria-hidden="true"></i>
+                    <span>Visitas:</span>
+                    <b>1,969,051</b>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <div class="dropdown">
+                <button class="nav-btn" type="button">Conócenos</button>
+                <!-- ENLACES ACTUALIZADOS Y VINCULADOS -->
+                <div class="dropdown-content">
+                    <a href="historia.html">Historia</a>
+                    <a href="rector.html">Oficina del Rector</a>
+                    <a href="organigrama.html">Organigrama</a>
+                    <a href="valores.html">Valores</a>
+                    <a href="reglas.html">Reglas UN</a>
+                    <a href="convenios.html">Convenios y Afiliaciones</a>
+                </div>
+            </div>
+            
+            <a href="index.html" class="nav-btn active">ENLACE</a>
+            <a href="noticias.html" class="nav-btn">Noticias</a>
+            <a href="videos.html" class="nav-btn">Videos</a>
+            <div class="dropdown">
+                <button class="nav-btn" type="button">Vinculación</button>
+                <div class="dropdown-content">
+                    <a href="Asistencia.html">Asistencia Social</a>
+                    <a href="bolsa.html">Bolsa de Trabajo</a>
+                    <a href="servicio.html">Servicio Social</a>
+                    <a href="practicas.html">Prácticas Profesionales</a>
+                    <a href="convenios.html">Convenios con Empresas</a>
+                </div>
+            </div>
+            <a href="donde-estamos.html" class="nav-btn">Donde Estamos</a>
+            <a href="programas.html" class="nav-btn">Programas Académicos</a>
+            <a href="comunidad.html" class="nav-btn">Comunidad UN</a>
+        </nav>
+
+        <div class="announcement">
+            <i class="ti ti-speakerphone" aria-hidden="true"></i>
+            <span>Instrucciones de Inscripción — Periodo Agosto–Diciembre 2026</span>
+            <span class="announcement-arrow"><i class="ti ti-chevron-right" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="body">
+            
+            <div class="left-panel">
+                <div class="glow-orb"></div>
+                <div class="glow-orb2"></div>
+                <div class="brand-block">
+                    <div class="enlace-card">
+                        <div class="enlace-icon-wrap">
+                            <img src="img/UNazul.png" alt="ENLACE Logo" class="enlace-card-image">
+                        </div>
+                        <div class="enlace-info">
+                            <div class="enlace-title">en<span>lace</span></div>
+                            <div class="enlace-subtitle">Portal Estudiantil · UN</div>
+                        </div>
+                    </div>
+                    <p class="desc-text">Plataforma de información de uso exclusivo para la <strong>comunidad estudiantil y docente</strong> de la Universidad del Norte.</p>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="login-top">
+                    <div class="login-eyebrow">Portal Institucional</div>
+                    <div class="login-heading">Bienvenido de vuelta</div>
+                    <div class="login-sub">Ingresa con tu cuenta de la Universidad del Norte para acceder al sistema.</div>
+                </div>
+
+                <form id="loginForm">
+                    <div class="field-wrap">
+                        <div class="field-label"><i class="ti ti-user" aria-hidden="true"></i> Usuario</div>
+                        <div class="field-input-row">
+                            <i class="ti ti-at" aria-hidden="true"></i>
+                            <input type="text" id="usernameInput" placeholder="al#####@un.edu.mx" autocomplete="username" required/>
+                        </div>
+                        <div class="field-hint"><i class="ti ti-info-circle" aria-hidden="true"></i> Formato: <code>al#####@un.edu.mx</code></div>
+                    </div>
+
+                    <div class="field-wrap">
+                        <div class="field-label"><i class="ti ti-lock" aria-hidden="true"></i> Contraseña</div>
+                        <div class="field-input-row">
+                            <i class="ti ti-lock" aria-hidden="true"></i>
+                            <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="current-password" required/>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="ti ti-login" aria-hidden="true"></i>
+                        Ingresar al Portal
+                    </button>
+                </form>
+                
+                <div class="or-row"><span>¿problemas con tu cuenta?</span></div>
+                <button class="btn-secondary">
+                    <i class="ti ti-key" aria-hidden="true"></i>
+                    Crear o Resetear mi Cuenta
+                </button>
+                <p class="recover-note">Si eres usuario nuevo o perdiste tu contraseña, haz clic arriba y captura tus datos personales. Si el problema persiste, contacta a la Dirección de Área Académica.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-quote">"La Universidad del Norte tiene como misión formar personas con conocimientos, habilidades, actitudes y valores con un sentido práctico de utilidad personal, profesional y social, mediante una cultura de calidad y excelencia"</p>
+            <div class="footer-copy">© 2026 Universidad del Norte</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

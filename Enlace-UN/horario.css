@@ -1,0 +1,572 @@
+/* ============================================
+   VARIABLES Y COLORES
+   ============================================ */
+:root {
+    --primary-color: #1b2d5b;
+    --secondary-color: #c8102e;
+    --bg-light: #f5f7fb;
+    --bg-white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-muted: #6b7280;
+    --border-color: #e5eaf2;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar {
+    width: 280px;
+    background: var(--primary-color);
+    color: white;
+    padding: 24px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    margin-bottom: 32px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-image {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 3px solid var(--secondary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.logo-image:hover {
+    border-color: #ff6b7a;
+    box-shadow: 0 12px 32px rgba(200, 16, 46, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.logo-text h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.03em;
+}
+
+.logo-text p {
+    font-size: 13px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+.sidebar-nav {
+    margin-bottom: 32px;
+}
+
+.nav-list {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    transform: translateX(4px);
+}
+
+.nav-link.active {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+    margin-left: 280px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background: var(--bg-white);
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.search-container {
+    position: relative;
+    max-width: 400px;
+}
+
+.search-container i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background: var(--bg-light);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(27, 45, 91, 0.08);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   PAGE CONTENT
+   ============================================ */
+.horario-container {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Encabezado de instrucciones */
+.instrucciones-header {
+    margin-bottom: 30px;
+}
+
+.instrucciones-header h2 {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #a00d25 100%);
+    color: white;
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.instrucciones-box {
+    border: 2px solid var(--border-color);
+    padding: 24px;
+    background-color: var(--bg-white);
+    border-radius: 0 0 12px 12px;
+    border-top: 3px solid var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.instrucciones-box p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.instrucciones-box p:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+/* Secciones */
+.horario-section {
+    margin-bottom: 32px;
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.horario-section h3 {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f1e3e 100%);
+    color: white;
+    padding: 16px 24px;
+    font-size: 18px;
+    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* Tabla principal de horario */
+.tabla-horario {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-white);
+}
+
+.tabla-horario thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f1e3e 100%);
+    color: white;
+}
+
+.tabla-horario th {
+    padding: 14px 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.tabla-horario td {
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 14px;
+}
+
+.tabla-horario tbody tr {
+    transition: all 0.2s ease;
+}
+
+.tabla-horario tbody tr:hover {
+    background: rgba(27, 45, 91, 0.04);
+}
+
+.tabla-horario tbody tr:nth-child(odd) {
+    background-color: rgba(245, 247, 251, 0.5);
+}
+
+.tabla-horario td.modalidad {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    font-weight: 700;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.tabla-horario td.hora {
+    background: linear-gradient(135deg, #d4e8f7 0%, #e8f4fc 100%);
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 15px;
+}
+
+.tabla-horario td:nth-child(4) {
+    text-align: left;
+    font-weight: 500;
+}
+
+.tabla-horario a {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f1e3e 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid rgba(27, 45, 91, 0.2);
+}
+
+.tabla-horario a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(27, 45, 91, 0.3);
+    background: linear-gradient(135deg, #0f1e3e 0%, var(--primary-color) 100%);
+}
+
+/* Información importante */
+.info-importante {
+    background: linear-gradient(135deg, rgba(200, 16, 46, 0.08) 0%, rgba(200, 16, 46, 0.04) 100%);
+    border-left: 5px solid var(--secondary-color);
+    padding: 24px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.info-importante h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.info-importante p {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.info-importante p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tabla de referencia de horas */
+.tabla-horarios-ref {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-white);
+}
+
+.tabla-horarios-ref thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f1e3e 100%);
+}
+
+.tabla-horarios-ref th {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f1e3e 100%);
+    color: white;
+    padding: 14px 16px;
+    text-align: center;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.tabla-horarios-ref td {
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    font-size: 13px;
+    background-color: rgba(245, 247, 251, 0.5);
+}
+
+.tabla-horarios-ref tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.tabla-horarios-ref tbody tr:hover {
+    background: rgba(27, 45, 91, 0.04);
+}
+
+.tabla-horarios-ref strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Advertencia */
+.advertencia {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.04) 100%);
+    border: 2px solid var(--secondary-color);
+    padding: 24px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: var(--bg-white);
+}
+
+.advertencia p {
+    color: var(--text-dark);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.advertencia p:first-child {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 15px;
+}
+
+.advertencia em {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Aviso de privacidad */
+.aviso-privacidad {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.aviso-privacidad h4 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.aviso-privacidad p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Misión */
+.mision {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f1e3e 100%);
+    color: white;
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.8;
+    box-shadow: 0 8px 24px rgba(27, 45, 91, 0.2);
+    font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 70px;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    .horario-container {
+        padding: 20px;
+        margin-left: 70px;
+    }
+
+    .instrucciones-header h2 {
+        font-size: 18px;
+        padding: 12px 16px;
+    }
+
+    .horario-section h3 {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+
+    .tabla-horario th,
+    .tabla-horario td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .tabla-horarios-ref td {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+
+    .info-importante,
+    .advertencia {
+        padding: 16px;
+    }
+
+    .mision {
+        padding: 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .horario-container {
+        padding: 12px;
+    }
+
+    .tabla-horario {
+        font-size: 11px;
+    }
+
+    .tabla-horario th,
+    .tabla-horario td {
+        padding: 8px 5px;
+    }
+
+    .tabla-horario a {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    .tabla-horarios-ref td {
+        padding: 8px 5px;
+        font-size: 10px;
+    }
+
+    .instrucciones-header h2 {
+        font-size: 16px;
+    }
+
+    .instrucciones-box p {
+        font-size: 13px;
+    }
+}
