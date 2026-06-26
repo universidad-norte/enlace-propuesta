@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas - Universidad del Norte</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-image">
+                <img src="img/UNazul.png" alt="UN Logo" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h1>Universidad</h1>
+                <p>del Norte</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <ul class="nav-list">
+            <li>
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="Horarios.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Horarios</span>
+                </a>
+            </li>
+            <li>
+                <a href="calificaciones.html" class="nav-link">
+                    <i class="fas fa-star"></i>
+                    <span>Calificaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="kardex.html" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Kardex</span>
+                </a>
+            </li>
+            <li>
+                <a href="finanzas.html" class="nav-link active">
+                    <i class="fas fa-wallet"></i>
+                    <span>Finanzas</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tareas</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Exámenes</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Mensajes</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <ul class="nav-list">
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-profile-mini">
+            <img src="img/UNazul.png" alt="Alumno" class="avatar-mini">
+            <div class="user-info-mini">
+                <p class="name">Alumno</p>
+                <p class="role">Ingeniería en Sistemas</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar..." class="search-input">
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <button class="icon-btn theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="icon-btn logout-btn" onclick="window.location.href='index.html'">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="estado-cuenta-container">
+            <h2 class="titulo-estado-cuenta">ESTADO DE CUENTA</h2>
+            <div class="tabla-responsive">
+                <table class="tabla-clasica-ec">
+                    <thead>
+                        <tr>
+                            <th>PERIODO</th>
+                            <th>FECHA</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th>CANT</th>
+                            <th>CARGOS</th>
+                            <th>ABONOS</th>
+                            <th>SALDO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-------</td>
+                            <td>01/01/1980</td>
+                            <td>Adeudos Anteriores</td>
+                            <td>1</td>
+                            <td class="numero">48,045.00</td>
+                            <td class="numero">48,045.00</td>
+                            <td class="numero">0.00</td>
+                        </tr>
+                        <tr>
+                            <td>202602-</td>
+                            <td>30/04/2026</td>
+                            <td>Primer Pago MAY - AGO 2026</td>
+                            <td>1</td>
+                            <td class="numero">3,450.00</td>
+                            <td class="numero">0.00</td>
+                            <td class="numero">3,450.00</td>
+                        </tr>
+                        <tr>
+                            <td>202602-</td>
+                            <td>30/04/2026</td>
+                            <td>Cargo Administrativo MAY - AGO 2026</td>
+                            <td>1</td>
+                            <td class="numero">700.00</td>
+                            <td class="numero">0.00</td>
+                            <td class="numero">4,150.00</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="home.js"></script>
+</body>
+</html>
