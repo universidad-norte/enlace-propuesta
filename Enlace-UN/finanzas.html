@@ -10,6 +10,88 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .page-container {
+            padding: 20px;
+        }
+
+        .estado-cuenta-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave para darle profundidad */
+            margin-top: 20px;
+        }
+
+        .titulo-estado-cuenta {
+            font-family: 'Poppins', sans-serif;
+            color: #1e3a8a; /* Azul institucional elegante */
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #a30903;
+        }
+
+        .tabla-responsive {
+            overflow-x: auto;
+        }
+
+        .tabla-clasica-ec {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        /* Diseño de los encabezados */
+        .tabla-clasica-ec th {
+            background-color: #f8fafc;
+            color: #64748b;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 16px;
+            text-align: left;
+            border-bottom: 2px solid #cbd5e1;
+        }
+
+        /* Diseño de las filas */
+        .tabla-clasica-ec td {
+            padding: 16px;
+            color: #334155;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+
+        /* Efecto hover al pasar el ratón por la fila */
+        .tabla-clasica-ec tbody tr:hover {
+            background-color: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        /* Alineación y formato de los números/montos */
+        .tabla-clasica-ec .numero {
+            text-align: right;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums; /* Mantiene los números alineados perfectamente */
+        }
+
+        /* Alinear a la derecha los encabezados de las columnas de dinero */
+        .tabla-clasica-ec th:nth-child(4),
+        .tabla-clasica-ec th:nth-child(5),
+        .tabla-clasica-ec th:nth-child(6),
+        .tabla-clasica-ec th:nth-child(7) {
+            text-align: right;
+        }
+
+        /* Destacar un poco el saldo final */
+        .tabla-clasica-ec td:last-child {
+            font-weight: 700;
+            color: #0f172a;
+        }
+    </style>
 </head>
 <body>
 
@@ -142,30 +224,30 @@
                             <td>-------</td>
                             <td>01/01/1980</td>
                             <td>Adeudos Anteriores</td>
-                            <td>1</td>
-                            <td class="numero">48,045.00</td>
-                            <td class="numero">48,045.00</td>
-                            <td class="numero">0.00</td>
+                            <td class="numero">1</td>
+                            <td class="numero">$48,045.00</td>
+                            <td class="numero">$48,045.00</td>
+                            <td class="numero">$0.00</td>
                         </tr>
                         <tr>
                             <td>202602-</td>
                             <td>30/04/2026</td>
                             <td>Primer Pago MAY - AGO 2026</td>
-                            <td>1</td>
-                            <td class="numero">3,450.00</td>
-                            <td class="numero">0.00</td>
-                            <td class="numero">3,450.00</td>
+                            <td class="numero">1</td>
+                            <td class="numero">$3,450.00</td>
+                            <td class="numero">$0.00</td>
+                            <td class="numero">$3,450.00</td>
                         </tr>
                         <tr>
                             <td>202602-</td>
                             <td>30/04/2026</td>
                             <td>Cargo Administrativo MAY - AGO 2026</td>
-                            <td>1</td>
-                            <td class="numero">700.00</td>
-                            <td class="numero">0.00</td>
-                            <td class="numero">4,150.00</td>
+                            <td class="numero">1</td>
+                            <td class="numero">$700.00</td>
+                            <td class="numero">$0.00</td>
+                            <td class="numero">$4,150.00</td>
                         </tr>
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
