@@ -10,325 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        .facturacion-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-        .panel-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 28px;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
-        }
-
-        [data-theme="dark"] .panel-card {
-            background: #1a2a4a;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .facturacion-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(200, 16, 46, 0.1);
-            color: #c8102e;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 18px;
-        }
-
-        [data-theme="dark"] .facturacion-badge {
-            background: rgba(200, 16, 46, 0.2);
-            color: #ff6b7a;
-        }
-
-        .facturacion-hero {
-            margin-bottom: 24px;
-            display: flex;
-            align-items: flex-start;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .facturacion-hero h2 {
-            font-size: 26px;
-            font-family: 'Poppins', sans-serif;
-            margin-bottom: 10px;
-            color: #111827;
-        }
-
-        [data-theme="dark"] .facturacion-hero h2 {
-            color: #f5f7fb;
-        }
-
-        .facturacion-hero p {
-            color: #4b5563;
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        [data-theme="dark"] .facturacion-hero p {
-            color: #a8b4c5;
-        }
-
-        .hero-content {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .hero-instructions {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .info-list {
-            margin-top: 18px;
-            list-style: none;
-            color: #475569;
-            font-size: 14px;
-            line-height: 1.8;
-            padding-left: 0;
-        }
-
-        [data-theme="dark"] .info-list {
-            color: #a8b4c5;
-        }
-
-        .info-list li {
-            position: relative;
-            padding-left: 26px;
-        }
-
-        .info-list li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: #10b981;
-            font-size: 10px;
-        }
-
-        .field-input-row input,
-        .field-input-row select {
-            width: 100%;
-            height: 46px;
-            border: 1.5px solid #e0e6ef;
-            border-radius: 10px;
-            padding: 0 14px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #1a2340;
-            background: #f8fafc;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        [data-theme="dark"] .field-input-row input,
-        [data-theme="dark"] .field-input-row select {
-            border-color: rgba(255, 255, 255, 0.1);
-            background: #0b1b4d;
-            color: #f5f7fb;
-        }
-
-        [data-theme="dark"] .field-input-row input::placeholder {
-            color: #7a8a9e;
-        }
-
-        .field-input-row select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 16px 16px;
-        }
-
-        [data-theme="dark"] .field-input-row select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239cc4ff' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-        }
-
-        .field-input-row input:focus,
-        .field-input-row select:focus {
-            border-color: #1b2d5b;
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(27, 45, 91, 0.08);
-        }
-
-        [data-theme="dark"] .field-input-row input:focus,
-        [data-theme="dark"] .field-input-row select:focus {
-            border-color: #6d5ce7;
-            background: #132856;
-            box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.15);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px;
-            margin-bottom: 20px;
-        }
-
-        .facturacion-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .facturacion-footer p {
-            color: #4b5563;
-            margin: 0;
-            font-size: 13px;
-        }
-
-        [data-theme="dark"] .facturacion-footer p {
-            color: #a8b4c5;
-        }
-
-        .invoice-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            margin-top: 18px;
-        }
-
-        .invoice-table th,
-        .invoice-table td {
-            padding: 14px 12px;
-            border-bottom: 1px solid #e5eaf2;
-        }
-
-        [data-theme="dark"] .invoice-table th,
-        [data-theme="dark"] .invoice-table td {
-            border-bottom-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .invoice-table th {
-            background: #f8fafc;
-            color: #64748b;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 0.06em;
-            font-weight: 700;
-            text-align: left;
-        }
-
-        [data-theme="dark"] .invoice-table th {
-            background: #0b1b4d;
-            color: #a8b4c5;
-        }
-
-        .invoice-table td {
-            color: #334155;
-        }
-
-        [data-theme="dark"] .invoice-table td {
-            color: #d1d8e0;
-        }
-
-        .invoice-table tbody tr:hover {
-            background: #f8fafc;
-        }
-
-        [data-theme="dark"] .invoice-table tbody tr:hover {
-            background: rgba(109, 92, 231, 0.1);
-        }
-
-        .invoice-table .numero {
-            text-align: right;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .receipt-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid #e5eaf2;
-        }
-
-        [data-theme="dark"] .receipt-summary {
-            border-top-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .receipt-summary span {
-            color: #475569;
-            font-size: 13px;
-        }
-
-        [data-theme="dark"] .receipt-summary span {
-            color: #a8b4c5;
-        }
-
-        .receipt-summary strong {
-            color: #111827;
-        }
-
-        [data-theme="dark"] .receipt-summary strong {
-            color: #f5f7fb;
-        }
-
-        .form-note {
-            margin-top: 14px;
-            font-size: 13px;
-            line-height: 1.7;
-            color: #64748b;
-            margin-bottom: 24px;
-        }
-
-        [data-theme="dark"] .form-note {
-            color: #8a95a8;
-            display: none;
-        }
-
-        .field-label {
-            color: #8a9ab5;
-        }
-
-        [data-theme="dark"] .field-label {
-            color: #a8b4c5;
-        }
-
-        @media (max-width: 1080px) {
-            .facturacion-hero {
-                flex-direction: column;
-                gap: 16px;
-            }
-        }
-
-        @media (max-width: 760px) {
-            .main-content {
-                margin-left: 0;
-            }
-
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-
-            .navbar {
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .page-container { padding: 24px; }
+        .panel-card { background: var(--bg-white); border-radius: 18px; padding: 28px; border: 1px solid var(--border-color); box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06); width:100%; }
+        .facturacion-grid { display:flex; flex-direction:column; gap:24px; width:100%; }
+        .facturacion-hero { display:flex; flex-direction:column; gap:24px; align-items:flex-start; margin-bottom: 24px; width:100%; }
+        .hero-content, .hero-instructions { width:100%; }
+        .hero-instructions { background: rgba(248, 250, 252, 0.95); border: 1px solid #e5eaf2; border-radius: 14px; padding: 20px; }
+        .hero-instructions .field-label { margin-bottom: 14px; }
+        .schedule-wrapper { background: var(--bg-white); border-radius: 16px; padding: 20px; border: 1px solid var(--border-color); margin-top: 20px; width:100%; }
+        .schedule-table-container { overflow-x: auto; width:100%; }
+        .schedule-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; }
+        .schedule-table th { background: var(--primary-color); color: white; padding: 16px 16px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; font-family: 'Montserrat', sans-serif; white-space: nowrap; }
+        .schedule-table td { padding: 16px 16px; border-bottom: 1px solid var(--border-color); font-size: 13px; color: var(--text-dark); font-family: 'Inter', sans-serif; white-space: nowrap; }
+        .schedule-table td.numero { text-align: right; }
+        .schedule-table tbody tr:hover { background: var(--bg-light); }
+        .form-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:18px; }
+        .field-input-row input, .field-input-row select { width:100%; height:44px; padding:8px 12px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-white); }
+        .receipt-summary { display:flex; justify-content:space-between; align-items:center; margin-top:24px; border-top:1px solid var(--border-color); padding-top:16px; }
     </style>
 </head>
 <body>
@@ -391,7 +89,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link">
+                <a href="actualiza-foto.html" class="nav-link">
                     <i class="fas fa-image"></i>
                     <span>Actualiza tu foto</span>
                 </a>
@@ -473,7 +171,7 @@
                         <div class="field-wrap">
                             <label class="field-label" for="curpInput">CURP del alumno</label>
                             <div class="field-input-row">
-                                <input id="curpInput" type="text" placeholder="NAPA080202HNLVRDA2" readonly value="NAPA080202HNLVRDA2">
+                                <input id="curpInput" type="text" placeholder="Escribe tu CURP" required>
                             </div>
                         </div>
 
@@ -546,10 +244,11 @@
 
                     <div class="form-note">Los campos son obligatorios para generar tu factura correctamente.</div>
 
-                    <div class="tabla-responsive" style="margin-top: 22px;">
-                        <table class="invoice-table">
-                            <thead>
-                                <tr>
+                    <div class="schedule-wrapper">
+                        <div class="schedule-table-container">
+                            <table class="schedule-table">
+                                <thead>
+                                    <tr>
                                     <th style="width: 40px;"></th>
                                     <th>FACTURAR</th>
                                     <th>FECHA</th>

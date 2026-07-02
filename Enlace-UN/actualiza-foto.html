@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualiza tu foto - Universidad del Norte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .page-container { padding: 24px; }
+        .upload-card {
+            background: var(--bg-white);
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+            padding: 28px;
+            width: 100%;
+            max-width: 920px;
+            margin-bottom: 24px;
+        }
+        .upload-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1b2d5b;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .upload-card p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.75;
+            margin: 0;
+        }
+        .upload-section { display:grid; gap:24px; }
+        .upload-step { display:grid; gap:12px; }
+        .field-label { display:block; margin-bottom:8px; color:#8a9ab5; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+        .upload-note { color:#475569; font-size:13px; line-height:1.7; }
+        .upload-warning { color:#b91c1c; font-weight:700; }
+        .file-input-row { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+        .file-input-row input[type="file"] {
+            width:100%;
+            max-width:420px;
+            padding:12px 14px;
+            border-radius:12px;
+            border:1.5px solid #e0e6ef;
+            background:#f8fafc;
+            color:#0f172a;
+            font-size:14px;
+        }
+        .upload-actions { display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+        .upload-status { color:#334155; font-size:13px; }
+        .app-icons { display:flex; gap:18px; flex-wrap:wrap; margin-top:20px; }
+        .app-icon {
+            width:100px;
+            height:100px;
+            border-radius:22px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#f1f5f9;
+            color:#1b2d5b;
+            font-size:36px;
+            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
+        }
+        .guide-grid { display:grid; gap:24px; grid-template-columns: repeat(2, minmax(260px, 1fr)); margin-top:24px; }
+        .guide-card {
+            background: var(--bg-white);
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+        .guide-card h3 { margin:0 0 12px 0; font-size:14px; color:#1b2d5b; text-transform:uppercase; letter-spacing:0.06em; }
+        .guide-card p, .guide-card li { color:#475569; font-size:13px; line-height:1.7; }
+        .guide-card ul, .guide-card ol { margin:12px 0 0 0; padding-left:18px; }
+        .guide-card li { margin-bottom:10px; }
+        .guide-card .image-placeholder {
+            width:100%;
+            min-height:220px;
+            border-radius:14px;
+            background:#f8fafc;
+            border:1px dashed #cbd5e1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#64748b;
+            font-size:13px;
+            text-align:center;
+            padding:20px;
+        }
+        .form-button { min-width:220px; }
+        @media (max-width: 900px) {
+            .guide-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-image">
+                <img src="img/UNazul.png" alt="UN Logo" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h1>Universidad</h1>
+                <p>del Norte</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <ul class="nav-list">
+            <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+            <li><a href="Horarios.html" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Horarios</span></a></li>
+            <li><a href="calificaciones.html" class="nav-link"><i class="fas fa-star"></i><span>Calificaciones</span></a></li>
+            <li><a href="kardex.html" class="nav-link"><i class="fas fa-book"></i><span>Kardex</span></a></li>
+            <li><a href="estado.html" class="nav-link"><i class="fas fa-wallet"></i><span>Estado de cuenta</span></a></li>
+            <li><a href="facturacion.html" class="nav-link"><i class="fas fa-file-invoice-dollar"></i><span>Facturación</span></a></li>
+            <li><a href="realiza-pagos.html" class="nav-link"><i class="fas fa-credit-card"></i><span>Realiza tus pagos</span></a></li>
+            <li><a href="actualiza-foto.html" class="nav-link active"><i class="fas fa-image"></i><span>Actualiza tu foto</span></a></li>
+        </ul>
+        <div class="sidebar-divider"></div>
+        <ul class="nav-list">
+            <li><a href="#" class="nav-link"><i class="fas fa-cog"></i><span>Configuración</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-profile-mini">
+            <img src="img/UNazul.png" alt="Alumno" class="avatar-mini">
+            <div class="user-info-mini">
+                <p class="name">Alumno</p>
+                <p class="role">Ingeniería en Sistemas</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" placeholder="Buscar...">
+            </div>
+        </div>
+        <div class="navbar-right">
+            <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+            <button class="icon-btn logout-btn" onclick="window.location.href='index.html'"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <h2 class="page-title">Actualiza tu foto</h2>
+            <p class="page-subtitle">Sigue las guías oficiales y sube una fotografía de credencial con el formato correcto.</p>
+        </div>
+
+        <section class="upload-card">
+            <div class="upload-section">
+                <div class="upload-step">
+                    <h3>Sube tu fotografía</h3>
+                    <label class="field-label" for="photoFile">Archivo de imagen</label>
+                    <div class="file-input-row">
+                        <input id="photoFile" type="file" accept="image/jpeg,image/png,image/webp">
+                    </div>
+                    <p class="upload-note">El archivo debe ser JPG, PNG o WEBP y tener un tamaño máximo de 200 KB. Asegúrate de que el fondo sea blanco y tu rostro esté centrado.</p>
+                </div>
+                <div class="upload-actions">
+                    <button id="uploadBtn" class="btn-primary form-button" type="button">Validar imagen</button>
+                    <span class="upload-status" id="uploadStatus">No se ha seleccionado ninguna imagen.</span>
+                </div>
+                <div class="upload-note upload-warning">Si el tamaño excede 200 KB, el sistema podría generar un error de carga. Ajusta la imagen antes de enviar.</div>
+                <div class="app-icons">
+                    <div class="app-icon"><i class="fab fa-apple"></i></div>
+                    <div class="app-icon"><i class="fab fa-android"></i></div>
+                </div>
+            </div>
+
+            <div class="guide-grid">
+                <article class="guide-card">
+                    <h3>Características de la foto</h3>
+                    <ul>
+                        <li>Fondo blanco y buena iluminación</li>
+                        <li>Frente al lente, sin gafas oscuras ni gorra</li>
+                        <li>Rostro completamente visible y centrado</li>
+                        <li>Proporción recomendada 3.5 x 4.5 cm</li>
+                        <li>Archivo menor a 200 KB</li>
+                    </ul>
+                </article>
+                <article class="guide-card">
+                    <h3>Cómo usarla</h3>
+                    <ol>
+                        <li>Selecciona tu archivo de imagen.</li>
+                        <li>Presiona Validar imagen.</li>
+                        <li>Ajusta el tamaño si el archivo es muy pesado.</li>
+                        <li>Una vez validada, estará lista para cargar en el sistema.</li>
+                    </ol>
+                    <div class="image-placeholder">Ejemplo de foto para credencial.</div>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const photoFile = document.getElementById('photoFile');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadStatus = document.getElementById('uploadStatus');
+
+        function setStatus(message, isError = false) {
+            uploadStatus.textContent = message;
+            uploadStatus.style.color = isError ? '#b91c1c' : '#334155';
+        }
+
+        uploadBtn.addEventListener('click', () => {
+            const file = photoFile.files[0];
+            if (!file) {
+                setStatus('Selecciona una imagen antes de validar.', true);
+                return;
+            }
+
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                setStatus('Solo se permiten archivos JPG, PNG o WEBP.', true);
+                return;
+            }
+
+            if (file.size > 200 * 1024) {
+                setStatus('El archivo excede los 200 KB. Reduce su tamaño e inténtalo nuevamente.', true);
+                return;
+            }
+
+            setStatus(`Imagen válida: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`);
+            alert('La imagen fue validada correctamente. Está lista para ser enviada al servidor.');
+        });
+    });
+</script>
+<script src="home.js"></script>
+</body>
+</html>
