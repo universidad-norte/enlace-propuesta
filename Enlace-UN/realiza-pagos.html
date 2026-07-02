@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realiza tus pagos - Universidad del Norte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pago-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+            margin-top: 24px;
+        }
+        [data-theme="dark"] .pago-container {
+            background: #1a2a4a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .pago-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(200, 16, 46, 0.1);
+            color: #c8102e;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        [data-theme="dark"] .pago-badge {
+            background: rgba(200, 16, 46, 0.2);
+            color: #ff6b7a;
+        }
+        .pago-instructions {
+            background: rgba(200, 16, 46, 0.05);
+            border-left: 4px solid #c8102e;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        [data-theme="dark"] .pago-instructions {
+            background: rgba(200, 16, 46, 0.15);
+        }
+        .pago-instructions h3 {
+            color: #c8102e;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .pago-instructions p {
+            color: #475569;
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        [data-theme="dark"] .pago-instructions p {
+            color: #a8b4c5;
+        }
+        .conceptos-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1b2d5b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5eaf2;
+        }
+        [data-theme="dark"] .conceptos-title {
+            color: #e0e6ff;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .tabla-pagos {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .tabla-pagos th {
+            background: #f8fafc;
+            color: #64748b;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 2px solid #cbd5e1;
+        }
+        [data-theme="dark"] .tabla-pagos th {
+            background: #0b1b4d;
+            color: #a8b4c5;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .tabla-pagos td {
+            padding: 14px 12px;
+            color: #334155;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+        [data-theme="dark"] .tabla-pagos td {
+            color: #d1d8e0;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .tabla-pagos tbody tr:hover {
+            background: #f8fafc;
+        }
+        [data-theme="dark"] .tabla-pagos tbody tr:hover {
+            background: rgba(109, 92, 231, 0.1);
+        }
+        .tabla-pagos .numero {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+        }
+        .tabla-pagos a {
+            color: #1b2d5b;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        [data-theme="dark"] .tabla-pagos a {
+            color: #9cc4ff;
+        }
+        .tabla-pagos a:hover {
+            color: #c8102e;
+        }
+        .total-pagar {
+            background: linear-gradient(135deg, rgba(27, 45, 91, 0.05), rgba(200, 16, 46, 0.05));
+            border: 1px solid #e5eaf2;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        [data-theme="dark"] .total-pagar {
+            background: linear-gradient(135deg, rgba(27, 45, 91, 0.1), rgba(200, 16, 46, 0.1));
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .total-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1b2d5b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        [data-theme="dark"] .total-label {
+            color: #e0e6ff;
+        }
+        .total-amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: #c8102e;
+            font-family: 'Poppins', sans-serif;
+        }
+        .datos-tarjeta-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        [data-theme="dark"] .datos-tarjeta-section {
+            background: rgba(27, 45, 91, 0.2);
+        }
+        .datos-tarjeta-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1b2d5b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5eaf2;
+        }
+        [data-theme="dark"] .datos-tarjeta-title {
+            color: #e0e6ff;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .form-grid-pagos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .field-input-row input {
+            width: 100%;
+            height: 46px;
+            border: 1.5px solid #e0e6ef;
+            border-radius: 10px;
+            padding: 0 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1a2340;
+            background: #f8fafc;
+            outline: none;
+            transition: all 0.2s;
+        }
+        [data-theme="dark"] .field-input-row input {
+            border-color: rgba(255, 255, 255, 0.1);
+            background: #0b1b4d;
+            color: #f5f7fb;
+        }
+        [data-theme="dark"] .field-input-row input::placeholder {
+            color: #7a8a9e;
+        }
+        .field-input-row input:focus {
+            border-color: #1b2d5b;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(27, 45, 91, 0.08);
+        }
+        [data-theme="dark"] .field-input-row input:focus {
+            border-color: #6d5ce7;
+            background: #132856;
+            box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.15);
+        }
+        .field-label {
+            color: #8a9ab5;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        [data-theme="dark"] .field-label {
+            color: #a8b4c5;
+        }
+        .pago-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .btn-pagar {
+            background: #1b2d5b;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+        .btn-pagar:hover {
+            background: #c8102e;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.25);
+        }
+        .btn-cancelar {
+            background: transparent;
+            color: #1b2d5b;
+            border: 1.5px solid #e0e6ef;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+        [data-theme="dark"] .btn-cancelar {
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #f5f7fb;
+        }
+        .btn-cancelar:hover {
+            background: #f8fafc;
+            border-color: #1b2d5b;
+        }
+        @media (max-width: 768px) {
+            .total-pagar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pago-actions {
+                flex-direction: column;
+            }
+            .btn-pagar, .btn-cancelar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-image">
+                <img src="img/UNazul.png" alt="UN Logo" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h1>Universidad</h1>
+                <p>del Norte</p>
+            </div>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <ul class="nav-list">
+            <li>
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="Horarios.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Horarios</span>
+                </a>
+            </li>
+            <li>
+                <a href="calificaciones.html" class="nav-link">
+                    <i class="fas fa-star"></i>
+                    <span>Calificaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="kardex.html" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Kardex</span>
+                </a>
+            </li>
+            <li>
+                <a href="estado.html" class="nav-link">
+                    <i class="fas fa-wallet"></i>
+                    <span>Estado de cuenta</span>
+                </a>
+            </li>
+            <li>
+                <a href="facturacion.html" class="nav-link">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Facturación</span>
+                </a>
+            </li>
+            <li>
+                <a href="realiza-pagos.html" class="nav-link active">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Realiza tus pagos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-image"></i>
+                    <span>Actualiza tu foto</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-divider"></div>
+        <ul class="nav-list">
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-profile-mini">
+            <img src="img/UNazul.png" alt="Alumno" class="avatar-mini">
+            <div class="user-info-mini">
+                <p class="name">Alumno</p>
+                <p class="role">Ingeniería en Sistemas</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" placeholder="Buscar...">
+            </div>
+        </div>
+        <div class="navbar-right">
+            <button class="icon-btn theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="icon-btn logout-btn" onclick="window.location.href='index.html'">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="page-header">
+            <h2 class="page-title">Realiza tus pagos</h2>
+            <p class="page-subtitle">Visualiza tus conceptos de pago y realiza el pago de tus cuotas de forma segura.</p>
+        </div>
+        <div class="pago-container">
+            <div class="pago-badge">CONCEPTOS DE PAGO</div>
+            <div class="pago-instructions">
+                <h3>Instrucciones de uso</h3>
+                <p><strong>Quita o Selecciona los Adeudos a Pagar.</strong> O si prefieres, puedes indicar el importe en el (los) recuadro(s) del Lado Derecho en la Columna Importe.</p>
+                <p>Puedes Pagar Con Tarjeta de Crédito o Débito.</p>
+                <p><strong>*** Si tu intento de Pago TE DA PROBLEMAS, Intenta con otro navegador ***</strong></p>
+            </div>
+            <h3 class="conceptos-title">Conceptos de Pago (45848)</h3>
+            <table class="tabla-pagos">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"></th>
+                        <th>PERIODO</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>CANT</th>
+                        <th>ADEUDO</th>
+                        <th></th>
+                        <th class="numero">IMPORTE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="pago-checkbox" data-amount="2400.00"></td>
+                        <td>202802</td>
+                        <td>CUARTO PAGO MAYO-AGOSTO 2026</td>
+                        <td>1</td>
+                        <td>$2,400.00</td>
+                        <td><a href="#" class="quitar-link">Quitar/Seleccionar (2400)</a></td>
+                        <td class="numero"><input type="number" class="importe-input" value="0" min="0" step="0.01" style="width: 120px; padding: 6px; border: 1px solid #e0e6ef; border-radius: 6px; text-align: right;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="pago-checkbox" data-amount="120.00"></td>
+                        <td>202802</td>
+                        <td>VISITA EMPRESA</td>
+                        <td>1</td>
+                        <td>$120.00</td>
+                        <td><a href="#" class="quitar-link">Quitar/Seleccionar (120)</a></td>
+                        <td class="numero"><input type="number" class="importe-input" value="0" min="0" step="0.01" style="width: 120px; padding: 6px; border: 1px solid #e0e6ef; border-radius: 6px; text-align: right;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="total-pagar">
+                <span class="total-label">Total a Pagar</span>
+                <span class="total-amount" id="totalAmount">$0.00</span>
+            </div>
+            <form id="pagoForm">
+                <div class="datos-tarjeta-section">
+                    <div class="datos-tarjeta-title">Datos de Tarjeta Habiente</div>
+                    <div class="form-grid-pagos">
+                        <div class="field-wrap">
+                            <label class="field-label" for="calleInput">Calle y Número</label>
+                            <div class="field-input-row">
+                                <input id="calleInput" type="text" placeholder="Calle y número" required>
+                            </div>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="field-label" for="ciudadInput">Ciudad</label>
+                            <div class="field-input-row">
+                                <input id="ciudadInput" type="text" placeholder="Ciudad" required>
+                            </div>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="field-label" for="estadoInput">Estado</label>
+                            <div class="field-input-row">
+                                <input id="estadoInput" type="text" placeholder="Estado" required>
+                            </div>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="field-label" for="codigopostalInput">Código Postal</label>
+                            <div class="field-input-row">
+                                <input id="codigopostalInput" type="text" placeholder="Código Postal" required>
+                            </div>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="field-label" for="telefonoInput">Teléfono</label>
+                            <div class="field-input-row">
+                                <input id="telefonoInput" type="tel" placeholder="Teléfono" required>
+                            </div>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="field-label" for="emailInput">Correo Electrónico</label>
+                            <div class="field-input-row">
+                                <input id="emailInput" type="email" placeholder="Correo Electrónico" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pago-actions">
+                    <button type="button" class="btn-cancelar" onclick="window.location.href='home.html'">Cancelar</button>
+                    <button type="submit" class="btn-pagar">Pagar con Tarjeta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script src="home.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = Array.from(document.querySelectorAll('.pago-checkbox'));
+        const importeInputs = Array.from(document.querySelectorAll('.importe-input'));
+        const totalAmount = document.getElementById('totalAmount');
+        const form = document.getElementById('pagoForm');
+        function updateTotal() {
+            let total = 0;
+            importeInputs.forEach((input) => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+            totalAmount.textContent = `$${total.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+        checkboxes.forEach((checkbox, index) => {
+            checkbox.addEventListener('change', () => {
+                const amount = parseFloat(checkbox.dataset.amount);
+                const input = importeInputs[index];
+                if (checkbox.checked) {
+                    input.value = amount;
+                } else {
+                    input.value = 0;
+                }
+                updateTotal();
+            });
+        });
+        importeInputs.forEach((input) => {
+            input.addEventListener('input', updateTotal);
+        });
+        document.querySelectorAll('.quitar-link').forEach((link, index) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                checkboxes[index].checked = !checkboxes[index].checked;
+                checkboxes[index].dispatchEvent(new Event('change'));
+            });
+        });
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const calle = document.getElementById('calleInput').value.trim();
+            const ciudad = document.getElementById('ciudadInput').value.trim();
+            const estado = document.getElementById('estadoInput').value.trim();
+            const codigopostal = document.getElementById('codigopostalInput').value.trim();
+            const telefono = document.getElementById('telefonoInput').value.trim();
+            const email = document.getElementById('emailInput').value.trim();
+            const total = parseFloat(totalAmount.textContent.replace(/[^0-9.]/g, ''));
+            if (!calle || !ciudad || !estado || !codigopostal || !telefono || !email) {
+                alert('Por favor completa todos los campos requeridos.');
+                return;
+            }
+            if (total === 0) {
+                alert('Selecciona al menos un concepto de pago para continuar.');
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Ingresa un correo electrónico válido.');
+                return;
+            }
+            const button = form.querySelector('.btn-pagar');
+            const originalText = button.textContent;
+            button.textContent = 'Procesando pago...';
+            button.disabled = true;
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                alert(`¡Pago procesado exitosamente!\n\nTotal pagado: $${total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}\nConfirmación enviada a: ${email}`);
+                form.reset();
+                checkboxes.forEach(cb => cb.checked = false);
+                importeInputs.forEach(input => input.value = 0);
+                updateTotal();
+            }, 1500);
+        });
+    });
+</script>
+</body>
+</html>

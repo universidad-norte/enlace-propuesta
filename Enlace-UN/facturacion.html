@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación - Universidad del Norte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .facturacion-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .panel-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+        }
+
+        [data-theme="dark"] .panel-card {
+            background: #1a2a4a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .facturacion-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(200, 16, 46, 0.1);
+            color: #c8102e;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        [data-theme="dark"] .facturacion-badge {
+            background: rgba(200, 16, 46, 0.2);
+            color: #ff6b7a;
+        }
+
+        .facturacion-hero {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .facturacion-hero h2 {
+            font-size: 26px;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        [data-theme="dark"] .facturacion-hero h2 {
+            color: #f5f7fb;
+        }
+
+        .facturacion-hero p {
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        [data-theme="dark"] .facturacion-hero p {
+            color: #a8b4c5;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .hero-instructions {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-list {
+            margin-top: 18px;
+            list-style: none;
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.8;
+            padding-left: 0;
+        }
+
+        [data-theme="dark"] .info-list {
+            color: #a8b4c5;
+        }
+
+        .info-list li {
+            position: relative;
+            padding-left: 26px;
+        }
+
+        .info-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #10b981;
+            font-size: 10px;
+        }
+
+        .field-input-row input,
+        .field-input-row select {
+            width: 100%;
+            height: 46px;
+            border: 1.5px solid #e0e6ef;
+            border-radius: 10px;
+            padding: 0 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #1a2340;
+            background: #f8fafc;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        [data-theme="dark"] .field-input-row input,
+        [data-theme="dark"] .field-input-row select {
+            border-color: rgba(255, 255, 255, 0.1);
+            background: #0b1b4d;
+            color: #f5f7fb;
+        }
+
+        [data-theme="dark"] .field-input-row input::placeholder {
+            color: #7a8a9e;
+        }
+
+        .field-input-row select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px 16px;
+        }
+
+        [data-theme="dark"] .field-input-row select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239cc4ff' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+        }
+
+        .field-input-row input:focus,
+        .field-input-row select:focus {
+            border-color: #1b2d5b;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(27, 45, 91, 0.08);
+        }
+
+        [data-theme="dark"] .field-input-row input:focus,
+        [data-theme="dark"] .field-input-row select:focus {
+            border-color: #6d5ce7;
+            background: #132856;
+            box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.15);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .facturacion-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .facturacion-footer p {
+            color: #4b5563;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        [data-theme="dark"] .facturacion-footer p {
+            color: #a8b4c5;
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            margin-top: 18px;
+        }
+
+        .invoice-table th,
+        .invoice-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5eaf2;
+        }
+
+        [data-theme="dark"] .invoice-table th,
+        [data-theme="dark"] .invoice-table td {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .invoice-table th {
+            background: #f8fafc;
+            color: #64748b;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        [data-theme="dark"] .invoice-table th {
+            background: #0b1b4d;
+            color: #a8b4c5;
+        }
+
+        .invoice-table td {
+            color: #334155;
+        }
+
+        [data-theme="dark"] .invoice-table td {
+            color: #d1d8e0;
+        }
+
+        .invoice-table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        [data-theme="dark"] .invoice-table tbody tr:hover {
+            background: rgba(109, 92, 231, 0.1);
+        }
+
+        .invoice-table .numero {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .receipt-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid #e5eaf2;
+        }
+
+        [data-theme="dark"] .receipt-summary {
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .receipt-summary span {
+            color: #475569;
+            font-size: 13px;
+        }
+
+        [data-theme="dark"] .receipt-summary span {
+            color: #a8b4c5;
+        }
+
+        .receipt-summary strong {
+            color: #111827;
+        }
+
+        [data-theme="dark"] .receipt-summary strong {
+            color: #f5f7fb;
+        }
+
+        .form-note {
+            margin-top: 14px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        [data-theme="dark"] .form-note {
+            color: #8a95a8;
+            display: none;
+        }
+
+        .field-label {
+            color: #8a9ab5;
+        }
+
+        [data-theme="dark"] .field-label {
+            color: #a8b4c5;
+        }
+
+        @media (max-width: 1080px) {
+            .facturacion-hero {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .main-content {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-image">
+                <img src="img/UNazul.png" alt="UN Logo" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h1>Universidad</h1>
+                <p>del Norte</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <ul class="nav-list">
+            <li>
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="Horarios.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Horarios</span>
+                </a>
+            </li>
+            <li>
+                <a href="calificaciones.html" class="nav-link">
+                    <i class="fas fa-star"></i>
+                    <span>Calificaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="kardex.html" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Kardex</span>
+                </a>
+            </li>
+            <li>
+                <a href="estado.html" class="nav-link">
+                    <i class="fas fa-wallet"></i>
+                    <span>Estado de cuenta</span>
+                </a>
+            </li>
+            <li>
+                <a href="facturacion.html" class="nav-link active">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Facturación</span>
+                </a>
+            </li>
+            <li>
+                <a href="realiza-pagos.html" class="nav-link">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Realiza tus pagos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-image"></i>
+                    <span>Actualiza tu foto</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <ul class="nav-list">
+            <li>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-profile-mini">
+            <img src="img/UNazul.png" alt="Alumno" class="avatar-mini">
+            <div class="user-info-mini">
+                <p class="name">Alumno</p>
+                <p class="role">Ingeniería en Sistemas</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" placeholder="Buscar...">
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <button class="icon-btn theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="icon-btn logout-btn" onclick="window.location.href='index.html'">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+
+        <div class="page-header">
+            <h2 class="page-title">Facturación</h2>
+            <p class="page-subtitle">Llena tus datos fiscales, selecciona los recibos y genera la factura electrónica de manera sencilla.</p>
+        </div>
+
+        <div class="facturacion-grid">
+
+            <section class="panel-card">
+                <div class="facturacion-hero">
+                    <div class="hero-content">
+                        <div class="facturacion-badge">MIS FACTURAS</div>
+                        <h2>Alumno</h2>
+                        <p>Carrera: Ing. Tecnol. de Inform. Acent. y Des de Software</p>
+                    </div>
+                    <div class="hero-instructions">
+                        <p class="field-label" style="margin-bottom: 10px; font-weight: 600; color: #1b2d5b;">INSTRUCCIONES</p>
+                        <ul class="info-list">
+                            <li>Confirma tus datos fiscales y de contacto.</li>
+                            <li>Selecciona los recibos que deseas facturar.</li>
+                            <li>Solo puedes facturar el mes en curso hasta el último día.</li>
+                            <li>Llama al (81) 88517100 Ext. 153 si necesitas ayuda.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form id="facturacionForm">
+                    <div class="form-grid">
+                        <div class="field-wrap">
+                            <label class="field-label" for="curpInput">CURP del alumno</label>
+                            <div class="field-input-row">
+                                <input id="curpInput" type="text" placeholder="NAPA080202HNLVRDA2" readonly value="NAPA080202HNLVRDA2">
+                            </div>
+                        </div>
+
+                        <div class="field-wrap">
+                            <label class="field-label" for="rfcInput">RFC a facturar</label>
+                            <div class="field-input-row">
+                                <input id="rfcInput" type="text" placeholder="Escribe tu RFC" required>
+                            </div>
+                        </div>
+
+                        <div class="field-wrap" style="grid-column: 1 / -1;">
+                            <label class="field-label" for="emailInput">Correo electrónico para envío de factura</label>
+                            <div class="field-input-row">
+                                <input id="emailInput" type="email" placeholder="correo@dominio.com" required>
+                            </div>
+                        </div>
+
+                        <div class="field-wrap">
+                            <label class="field-label" for="postalInput">Código postal</label>
+                            <div class="field-input-row">
+                                <input id="postalInput" type="text" placeholder="64000" required>
+                            </div>
+                        </div>
+
+                        <div class="field-wrap">
+                            <label class="field-label" for="formaPagoSelect">Forma de pago</label>
+                            <div class="field-input-row">
+                                <select id="formaPagoSelect" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Transferencia">Transferencia</option>
+                                    <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-wrap">
+                            <label class="field-label" for="usoCfdiSelect">Uso CFDI</label>
+                            <div class="field-input-row">
+                                <select id="usoCfdiSelect" required>
+                                    <option value="">Selecciona un uso</option>
+                                    <option value="P01">P01 - Pagos en una sola exhibición</option>
+                                    <option value="P02">P02 - Pagos en parcialidades o diferido</option>
+                                    <option value="G03">G03 - Gastos en general</option>
+                                    <option value="D03">D03 - Gastos médicos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-wrap" style="grid-column: 1 / -1;">
+                            <label class="field-label" for="regimenSelect">Régimen fiscal</label>
+                            <div class="field-input-row">
+                                <select id="regimenSelect" required>
+                                    <option value="">Selecciona un régimen</option>
+                                    <option value="601">601 - General de Ley Personas Morales</option>
+                                    <option value="603">603 - Personas Morales con Fines no Lucrativos</option>
+                                    <option value="605">605 - Régimen de las Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
+                                    <option value="606">606 - Arrendamiento</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-wrap" style="grid-column: 1 / -1;">
+                            <label class="field-label" for="razonInput">Razón social</label>
+                            <div class="field-input-row">
+                                <input id="razonInput" type="text" placeholder="Nombre o razón social" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-note">Los campos son obligatorios para generar tu factura correctamente.</div>
+
+                    <div class="tabla-responsive" style="margin-top: 22px;">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px;"></th>
+                                    <th>FACTURAR</th>
+                                    <th>FECHA</th>
+                                    <th>DESCRIPCIÓN</th>
+                                    <th class="numero">MONTO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="receipt-checkbox"></td>
+                                    <td>202602-01</td>
+                                    <td>30/04/2026</td>
+                                    <td>Primer pago MAY - AGO 2026</td>
+                                    <td class="numero">$3,450.00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="receipt-checkbox"></td>
+                                    <td>202602-02</td>
+                                    <td>30/04/2026</td>
+                                    <td>Cargo Administrativo MAY - AGO 2026</td>
+                                    <td class="numero">$700.00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="receipt-checkbox"></td>
+                                    <td>202602-03</td>
+                                    <td>30/04/2026</td>
+                                    <td>Adeudos anteriores</td>
+                                    <td class="numero">$48,045.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="receipt-summary">
+                        <span><strong id="movementsCount">0</strong> movimientos seleccionados</span>
+                        <div>
+                            <span>Total estimado: <strong id="estimatedTotal">$0.00</strong></span>
+                            <button type="submit" class="btn-primary" style="margin-left: 16px;">Generar factura</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<script src="home.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('facturacionForm');
+        const checkboxes = Array.from(document.querySelectorAll('.receipt-checkbox'));
+        const movementsCount = document.getElementById('movementsCount');
+        const estimatedTotal = document.getElementById('estimatedTotal');
+
+        function updateSummary() {
+            const selected = checkboxes.filter((checkbox) => checkbox.checked);
+            const total = selected.reduce((sum, checkbox) => {
+                const row = checkbox.closest('tr');
+                const amountText = row.querySelector('.numero').textContent.replace(/[^0-9.]/g, '');
+                return sum + parseFloat(amountText || '0');
+            }, 0);
+
+            movementsCount.textContent = selected.length;
+            estimatedTotal.textContent = `$${total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}`;
+        }
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', updateSummary);
+        });
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const rfc = document.getElementById('rfcInput').value.trim();
+            const email = document.getElementById('emailInput').value.trim();
+            const postal = document.getElementById('postalInput').value.trim();
+            const formaPago = document.getElementById('formaPagoSelect').value;
+            const usoCfdi = document.getElementById('usoCfdiSelect').value;
+            const regimen = document.getElementById('regimenSelect').value;
+            const razon = document.getElementById('razonInput').value.trim();
+
+            const selectedReceipts = checkboxes.filter((checkbox) => checkbox.checked);
+
+            if (!rfc || !email || !postal || !formaPago || !usoCfdi || !regimen || !razon) {
+                alert('Por favor completa todos los campos obligatorios antes de enviar la solicitud.');
+                return;
+            }
+
+            if (selectedReceipts.length === 0) {
+                alert('Selecciona al menos un recibo para generar la factura.');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Ingresa un correo electrónico válido.');
+                return;
+            }
+
+            const button = form.querySelector('.btn-primary');
+            const originalText = button.textContent;
+            button.textContent = 'Generando factura...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                alert(`Factura generada con éxito. Se enviará a ${email} y se procesaron ${selectedReceipts.length} recibo(s).`);
+            }, 1400);
+        });
+    });
+</script>
+</body>
+</html>

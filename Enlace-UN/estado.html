@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estado de cuenta - Universidad del Norte</title>
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="home.css">
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
@@ -24,6 +22,11 @@
             margin-top: 20px;
         }
 
+        [data-theme="dark"] .estado-cuenta-container {
+            background-color: #1a2a4a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
         .titulo-estado-cuenta {
             font-family: 'Poppins', sans-serif;
             color: #1e3a8a; 
@@ -31,6 +34,11 @@
             margin-bottom: 24px;
             padding-bottom: 12px;
             border-bottom: 2px solid #a30903;
+        }
+
+        [data-theme="dark"] .titulo-estado-cuenta {
+            color: #e0e6ff;
+            border-bottom-color: #ff6b7a;
         }
 
         .tabla-responsive {
@@ -56,6 +64,12 @@
             border-bottom: 2px solid #cbd5e1;
         }
 
+        [data-theme="dark"] .tabla-clasica-ec th {
+            background-color: #0b1b4d;
+            color: #a8b4c5;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
         .tabla-clasica-ec td {
             padding: 16px;
             color: #334155;
@@ -63,9 +77,18 @@
             vertical-align: middle;
         }
 
+        [data-theme="dark"] .tabla-clasica-ec td {
+            color: #d1d8e0;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
         .tabla-clasica-ec tbody tr:hover {
             background-color: #f8fafc;
             transition: all 0.2s ease;
+        }
+
+        [data-theme="dark"] .tabla-clasica-ec tbody tr:hover {
+            background-color: rgba(109, 92, 231, 0.1);
         }
 
         .tabla-clasica-ec .numero {
@@ -84,6 +107,10 @@
         .tabla-clasica-ec td:last-child {
             font-weight: 700;
             color: #0f172a;
+        }
+
+        [data-theme="dark"] .tabla-clasica-ec td:last-child {
+            color: #f5f7fb;
         }
     </style>
 </head>
@@ -135,13 +162,13 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link">
+                <a href="facturacion.html" class="nav-link">
                     <i class="fas fa-tasks"></i>
                     <span>Facturación</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link">
+                <a href="realiza-pagos.html" class="nav-link">
                     <i class="fas fa-file-alt"></i>
                     <span>Realiza tus pagos</span>
                 </a>
