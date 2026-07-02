@@ -10,31 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        .banner-placeholder {
-            width: 100%;
-            height: 140px;
-            background-color: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-        }
-        
-        /* Tema oscuro para el placeholder */
-        [data-theme="dark"] .banner-placeholder {
-            background-color: #1e293b;
-            border-color: #334155;
-        }
-
-        .banner-placeholder span {
-            color: #64748b;
-            font-weight: 500;
-            font-size: 14px;
-        }
-
         .alert-box {
             display: flex;
             gap: 16px;
@@ -171,6 +146,31 @@
         .btn-ficha:hover {
             background: #5b4bde;
         }
+
+      /* ====== AQUÍ ESTÁN LAS REGLAS DEL BANNER ACTUALIZADAS ====== */
+        .banner-placeholder {
+            width: 100%;
+            /* Quitamos el height fijo para que la imagen dicte el tamaño */
+            background-color: transparent; /* Lo hacemos transparente para que luzca más limpio */
+            border: none; 
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            overflow: hidden; 
+        }
+
+        .banner-placeholder img {
+            width: 100%; /* Le decimos que ocupe el 100% del ancho de la página */
+            height: auto; /* La altura se calcula sola para no aplastar la imagen */
+            max-height: 150px; /* Ponemos un tope máximo de altura por si acaso */
+            object-fit: contain; 
+        }
+
+        [data-theme="dark"] .banner-placeholder {
+            background-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -230,8 +230,8 @@
             <section class="cobranza-section">
                 
                 <div class="banner-placeholder">
-                    <span>[Espacio para imagen de Enlace / UN]</span>
-                    </div>
+                    <img src="img/UnImg.png" alt="Universidad del Norte">
+                </div>
 
                 <div class="alert-box alert-info">
                     <i class="fas fa-info-circle"></i>
@@ -264,8 +264,9 @@
                                     <td>06/05/2026</td>
                                     <td><span class="ref-number">102104509300600001107370143228</span></td>
                                     <td>
-                                        <button class="btn-ficha"><i class="fas fa-print"></i> Ficha</button>
-                                    </td>
+                                        <button class="btn-ficha" onclick="window.open('ficha-impresion.html', '_blank', 'width=900,height=600')">
+                                            <i class="fas fa-print"></i> Ficha
+                                        </button>                                  </td>
                                 </tr>
                                 <tr>
                                     <td><strong>202602</strong></td>
@@ -275,7 +276,9 @@
                                     <td>15/06/2026</td>
                                     <td><span class="ref-number">116704509300120001107371143227</span></td>
                                     <td>
-                                        <button class="btn-ficha"><i class="fas fa-print"></i> Ficha</button>
+                                        <button class="btn-ficha" onclick="window.open('ficha-impresion.html', '_blank', 'width=900,height=600')">
+                                            <i class="fas fa-print"></i> Ficha
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>

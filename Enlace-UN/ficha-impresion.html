@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Depósito - AFIRME</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #000;
+            background: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .print-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Encabezado con logos */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-un {
+            width: 250px; /* Ajusta según el tamaño de tu logo */
+        }
+        
+        .logo-afirme {
+            text-align: center;
+        }
+        
+        .logo-afirme img {
+            width: 200px; /* Ajusta según el logo del banco */
+            margin-bottom: 5px;
+        }
+
+        .bank-info {
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .school-info {
+            font-size: 10px;
+            text-align: center;
+            width: 250px;
+            margin-top: 5px;
+        }
+
+        /* Tablas de información */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        .table-title {
+            background-color: #fff;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+        }
+
+        .no-border-left {
+            border-left: none;
+        }
+        
+        .no-border-right {
+            border-right: none;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        /* Notas del pie de página */
+        .footer-notes {
+            text-align: center;
+            font-size: 10px;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+
+        .footer-notes u {
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* Ocultar elementos innecesarios al imprimir */
+        @media print {
+            body {
+                padding: 0;
+            }
+            @page {
+                margin: 1cm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-container">
+        
+        <div class="header">
+            <div>
+                <img src="img/UNazul.png" alt="Universidad del Norte" class="logo-un">
+                <div class="school-info">
+                    Venustiano Carranza #1350 Nte. Col. Centro<br>
+                    Monterrey, N.L. C.P. 64000 Tel. 8851-7100 www.un.edu.mx<br>
+                    RVOE de fecha 18 de julio de 1973 por acuerdo del Ejecutivo del Estado
+                </div>
+            </div>
+            
+            <div class="logo-afirme">
+                <h2>AFIRME</h2> 
+                <div class="bank-info">
+                    Ficha de Deposito<br>
+                    Cuenta 106105871<br>
+                    Clabe 062580001061058710
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th colspan="2" class="table-title">DATOS DEL ALUMNO</th>
+                <th colspan="2" class="text-right table-title bold">Fecha de impresión del recibo: <span id="fecha-hoy"></span></th>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 15%;">Nombre:</td>
+                <td style="width: 45%;">GALILEO SAN MIGUEL CARDONA</td>
+                <td class="bold" style="width: 15%;">Matricula:</td>
+                <td style="width: 25%;">45093</td>
+            </tr>
+            <tr>
+                <td class="bold">Estudios a Cursar a nivel:</td>
+                <td>INFORMATICA</td>
+                <td class="bold">Carrera:</td>
+                <td>ING. TECNOL DE INFORM ACENT. COMUNICIONES 2010</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="3" class="text-center">CUOTAS</th>
+            </tr>
+            <tr>
+                <th class="bold" style="font-size: 16px; width: 30%;">Concepto</th>
+                <th class="bold" style="font-size: 16px; width: 50%;">Referencia</th>
+                <th class="text-right bold" style="font-size: 16px; width: 20%;">Importe</th>
+            </tr>
+            <tr>
+                <td>VISITAEMPRESA</td>
+                <td class="bold">116704509300120001107373143227</td>
+                <td class="text-right bold">120.00</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right bold" style="border-right: none;">IMPORTE TOTAL:</td>
+                <td class="text-right bold">120.00</td>
+            </tr>
+        </table>
+
+        <div class="footer-notes">
+            <u>Los recargos económicos se aplican a partir del día siguiente de la fecha límite de vencimiento, de acuerdo al calendario oficial de la institución.</u><br><br>
+            PARA CUALQUIER ACLARACION DEBERÁ PRESENTAR ESTE COMPROBANTE. ESTE DOCUMENTO SOLO SERÁ VÁLIDO CON EL SELLO DE LA CAJA Y LA CERTIFICACIÓN.<br>
+            <strong>ESTE DOCUMENTO TIENE COMO FECHA DE VENCIMIENTO EL MISMO DÍA DE SU IMPRESIÓN.</strong>
+        </div>
+
+    </div>
+
+    <script>
+        // Formatear la fecha actual (ej. 02/07/2026)
+        const hoy = new Date();
+        const dia = String(hoy.getDate()).padStart(2, '0');
+        const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+        const anio = hoy.getFullYear();
+        document.getElementById('fecha-hoy').textContent = `${dia}/${mes}/${anio}`;
+
+        // Lanzar cuadro de impresión al cargar la página
+        window.onload = function() {
+            setTimeout(function() {
+                window.print();
+            }, 500); // Pequeño retraso para que carguen las imágenes
+        };
+    </script>
+</body>
+</html>
