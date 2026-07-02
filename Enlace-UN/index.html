@@ -38,6 +38,9 @@
                     <span>Visitas:</span>
                     <b>1,969,051</b>
                 </div>
+                <button class="menu-toggle" type="button" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
 
@@ -153,5 +156,27 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav');
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function () {
+                    nav.classList.toggle('active');
+                });
+            }
+
+            const dropdownButtons = document.querySelectorAll('.dropdown > .nav-btn');
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    if (window.innerWidth <= 850) {
+                        event.preventDefault();
+                        const dropdown = button.closest('.dropdown');
+                        dropdown.classList.toggle('open');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
