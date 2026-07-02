@@ -8,6 +8,102 @@
     <link rel="stylesheet" href="home.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Desactivamos el flex lateral original solo para esta página */
+        .page-container {
+            display: block !important; 
+        }
+
+        /* Estilos específicos para la tarjeta de la encuesta */
+        .survey-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            
+            /* Esto hace que el cuadro caiga ABAJO del texto y se centre solo */
+            max-width: 550px; 
+            margin: 40px auto; 
+        }
+
+        [data-theme="dark"] .survey-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        /* Encabezado rojo */
+        .survey-header {
+            background: #ef4444; 
+            color: white;
+            padding: 30px 20px;
+        }
+
+        [data-theme="dark"] .survey-header {
+            background: #b91c1c; 
+        }
+
+        .survey-header h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .survey-header p {
+            margin: 12px 0 0 0;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Cuerpo de la tarjeta (Área del botón) */
+        .survey-body {
+            padding: 35px 20px;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .survey-body {
+            background: #0f172a;
+        }
+
+        /* Botón enviar */
+        .btn-enviar {
+            background: #2563eb; 
+            color: white;
+            border: none;
+            padding: 14px 45px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-enviar:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        [data-theme="dark"] .btn-enviar {
+            background: #3b82f6;
+        }
+
+        [data-theme="dark"] .btn-enviar:hover {
+            background: #2563eb;
+        }
+    </style>
 </head>
 <body>
     <aside class="sidebar">
@@ -59,22 +155,18 @@
             <div class="page-header">
                 <div>
                     <h2 class="page-title">Habilidades</h2>
-                    <p class="page-subtitle">Destaca tus competencias y fortalezas académicas.</p>
+                    <p class="page-subtitle">Destaca tus competencias y fortalezas académicas contestando tus encuestas.</p>
                 </div>
             </div>
 
-            <section class="service-detail-card detail-page-card">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; praesent tincidunt sit amet tellus eget.</p>
-                <ul class="service-detail-list">
-                    <li>Registra tus competencias técnicas y blandas.</li>
-                    <li>Tu perfil se puede actualizar en cualquier momento.</li>
-                    <li>Estas habilidades pueden ser útiles para prácticas y empleos.</li>
-                </ul>
-                <div class="service-inline-links">
-                    <a href="ficha-inscripcion.html">Ficha de inscripción</a>
-                    <a href="ficha-deposito.html">Ficha de deposito</a>
-                    <a href="cambiar-contrasena.html">Cambiar contraseña</a>
-                </div>
+            <section class="survey-card">
+               <div class="survey-header">
+                   <h3>Seleccione la encuesta a contestar</h3>
+                   <p><a href="encuesta.html" style="color: white; text-decoration: underline; text-underline-offset: 4px;">Habilidades Para la Vida</a></p>
+               </div>
+               <div class="survey-body">
+                   <a href="encuesta.html" class="btn-enviar"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Enviar</a>
+               </div>
             </section>
         </div>
     </main>

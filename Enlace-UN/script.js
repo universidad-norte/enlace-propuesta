@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 return; // Detiene la ejecución
             }
 
+            // Guardamos la contraseña vigente para usarla en la página de cambio de contraseña
+            localStorage.setItem("enlaceCurrentPassword", password);
+
             // Si pasa todas las validaciones, procedemos con la simulación
             const btn = loginForm.querySelector(".btn-primary");
             const btnOriginalText = btn.innerHTML;

@@ -8,6 +8,147 @@
     <link rel="stylesheet" href="home.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Contenedor del Formulario moderno */
+        .password-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            padding: 35px;
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        [data-theme="dark"] .password-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        /* Grupos de campos */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        [data-theme="dark"] .form-group label {
+            color: #cbd5e1;
+        }
+
+        /* Inputs estilizados con icono interno */
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px 12px 42px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        [data-theme="dark"] .form-control {
+            background-color: #0f172a;
+            border-color: #334155;
+            color: #f8fafc;
+        }
+
+        [data-theme="dark"] .form-control:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Botón Cambiar Clave */
+        .btn-submit-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .btn-cambiar {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-cambiar:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .form-message {
+            margin-top: 18px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            display: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            display: block;
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+
+        .form-message.error {
+            display: block;
+            background: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+        }
+
+        [data-theme="dark"] .btn-cambiar {
+            background: #3b82f6;
+        }
+
+        [data-theme="dark"] .btn-cambiar:hover {
+            background: #2563eb;
+        }
+    </style>
 </head>
 <body>
     <aside class="sidebar">
@@ -63,22 +204,106 @@
                 </div>
             </div>
 
-            <section class="service-detail-card detail-page-card">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, enim in consequat faucibus, ligula risus rutrum eros, vel pharetra justo magna in felis.</p>
-                <ul class="service-detail-list">
-                    <li>Tu contraseña debe contener mayúsculas, minúsculas y números.</li>
-                    <li>Se recomienda cambiarla cada cierto tiempo para mayor seguridad.</li>
-                    <li>Recibirás una confirmación al momento de actualizarla.</li>
-                </ul>
-                <div class="service-inline-links">
-                    <a href="ficha-inscripcion.html">Ficha de inscripción</a>
-                    <a href="ficha-deposito.html">Ficha de deposito</a>
-                    <a href="habilidades.html">Habilidades</a>
-                </div>
+            <section class="password-card">
+                <form action="#" method="POST" onsubmit="event.preventDefault();">
+                    
+                    <div class="form-group">
+                        <label for="current-password">Contraseña Actual</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="current-password" class="form-control" placeholder="Introduce tu contraseña actual" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new-password">Contraseña Nueva</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-key"></i>
+                            <input type="password" id="new-password" class="form-control" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirme Contraseña</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-check-double"></i>
+                            <input type="password" id="confirm-password" class="form-control" placeholder="Repite tu nueva contraseña" required>
+                        </div>
+                    </div>
+
+                    <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+
+                    <div class="btn-submit-container">
+                        <button type="submit" class="btn-cambiar">
+                            <i class="fas fa-save"></i> Cambiar Clave
+                        </button>
+                    </div>
+
+                </form>
             </section>
         </div>
     </main>
 
     <script src="home.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.password-card form');
+            const messageBox = document.getElementById('form-message');
+            const inputs = Array.from(form.querySelectorAll('input'));
+            const currentPasswordInput = document.getElementById('current-password');
+            const newPasswordInput = document.getElementById('new-password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const storedPassword = localStorage.getItem('enlaceCurrentPassword') || '';
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const currentPassword = currentPasswordInput.value.trim();
+                const newPassword = newPasswordInput.value.trim();
+                const confirmPassword = confirmPasswordInput.value.trim();
+
+                messageBox.className = 'form-message';
+                messageBox.textContent = '';
+
+                if (currentPassword !== storedPassword) {
+                    messageBox.classList.add('error');
+                    messageBox.textContent = 'La contraseña actual no es correcta. Debe ser la misma que usaste al iniciar sesión.';
+                    inputs.forEach(function (input) {
+                        input.value = '';
+                    });
+                    currentPasswordInput.focus();
+                    return;
+                }
+
+                if (newPassword.length < 8) {
+                    messageBox.classList.add('error');
+                    messageBox.textContent = 'La nueva contraseña debe tener al menos 8 caracteres.';
+                    inputs.forEach(function (input) {
+                        input.value = '';
+                    });
+                    currentPasswordInput.focus();
+                    return;
+                }
+
+                if (newPassword !== confirmPassword) {
+                    messageBox.classList.add('error');
+                    messageBox.textContent = 'La confirmación de la contraseña no es correcta. Inténtalo de nuevo.';
+                    inputs.forEach(function (input) {
+                        input.value = '';
+                    });
+                    currentPasswordInput.focus();
+                    return;
+                }
+
+                localStorage.setItem('enlaceCurrentPassword', newPassword);
+                messageBox.classList.add('success');
+                messageBox.textContent = 'La contraseña ha sido cambiada exitosamente.';
+                inputs.forEach(function (input) {
+                    input.value = '';
+                });
+                currentPasswordInput.focus();
+            });
+        });
+    </script>
 </body>
 </html>

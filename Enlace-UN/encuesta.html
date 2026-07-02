@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta: Habilidades para la Vida - UN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .survey-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+        }
+
+        [data-theme="dark"] .survey-container {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .survey-legend {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+            margin-bottom: 25px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .survey-legend {
+            background: #0f172a;
+            color: #cbd5e1;
+            border-left-color: #3b82f6;
+        }
+
+        /* Estilos de cada pregunta */
+        .question-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .question-item {
+            background: #0f172a;
+            border-color: #334155;
+        }
+
+        /* Clase dinámica cuando hay un error (falta contestar) */
+        .question-item.error {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        [data-theme="dark"] .question-item.error {
+            background: #450a0a;
+            border-color: #ef4444;
+        }
+
+        .question-text {
+            margin: 0 0 15px 0;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .options-wrapper {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .options-wrapper label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px 16px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+            user-select: none;
+        }
+
+        [data-theme="dark"] .options-wrapper label {
+            background: #1e293b;
+            color: #e2e8f0;
+        }
+
+        .options-wrapper label:hover {
+            background: #e2e8f0;
+        }
+
+        [data-theme="dark"] .options-wrapper label:hover {
+            background: #334155;
+        }
+
+        .options-wrapper input[type="radio"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: #2563eb;
+        }
+
+        .btn-submit-survey {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit-survey:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Error message flotante */
+        #error-message {
+            display: none;
+            background: #ef4444;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-image"><img src="img/UNazul.png" alt="UN Logo" class="logo-img"></div>
+                <div class="logo-text"><h1>Universidad</h1><p>del Norte</p></div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                <li><a href="Horarios.html" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Horarios</span></a></li>
+                <li><a href="calificaciones.html" class="nav-link"><i class="fas fa-star"></i><span>Calificaciones</span></a></li>
+                <li><a href="kardex.html" class="nav-link"><i class="fas fa-book"></i><span>Kardex</span></a></li>
+                <li><a href="estado.html" class="nav-link"><i class="fas fa-wallet"></i><span>Estado de cuenta</span></a></li>
+                <li><a href="facturacion.html" class="nav-link"><i class="fas fa-tasks"></i><span>Facturacion</span></a></li>
+                <li><a href="realiza-pagos.html" class="nav-link"><i class="fas fa-file-alt"></i><span>Realiza tus pagos</span></a></li>
+                <li><a href="ficha-inscripcion.html" class="nav-link"><i class="fas fa-file-contract"></i><span>Ficha de inscripción</span></a></li>
+                <li><a href="ficha-deposito.html" class="nav-link"><i class="fas fa-money-check-alt"></i><span>Ficha de deposito</span></a></li>
+                <li><a href="cambiar-contrasena.html" class="nav-link"><i class="fas fa-key"></i><span>Cambiar contraseña</span></a></li>
+                <li><a href="habilidades.html" class="nav-link active"><i class="fas fa-brain"></i><span>Habilidades</span></a></li>
+                <li><a href="actualiza-foto.html" class="nav-link"><i class="fas fa-envelope"></i><span>Actualiza tu foto</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="icon-btn logout-btn" onclick="window.location.href='index.html'"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </nav>
+
+        <div class="page-container">
+            <div class="page-header">
+                <div>
+                    <h2 class="page-title">Habilidades Para la Vida</h2>
+                    <p class="page-subtitle">Por favor contesta todas las preguntas con honestidad.</p>
+                </div>
+                <button class="btn-ficha" onclick="window.location.href='habilidades.html'" style="background: transparent; color: #ef4444; border: 1px solid #ef4444; border-radius: 6px; padding: 8px 16px; cursor:pointer;">
+                    <i class="fas fa-arrow-left"></i> Regresar
+                </button>
+            </div>
+
+            <div class="survey-container">
+                <div class="survey-legend">
+                    <strong>Escala de respuestas:</strong><br>
+                    1 - NUNCA &nbsp;|&nbsp; 2 - MUY RARA VEZ &nbsp;|&nbsp; 3 - A VECES &nbsp;|&nbsp; 4 - CASI SIEMPRE &nbsp;|&nbsp; 5 - SIEMPRE
+                </div>
+
+                <div id="error-message"><i class="fas fa-exclamation-triangle"></i> Te faltan preguntas por contestar. Las hemos resaltado en rojo.</div>
+
+                <form id="habilidades-form">
+                    <div id="questions-wrapper"></div>
+                    
+                    <button type="submit" class="btn-submit-survey"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Enviar Encuesta</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="home.js"></script>
+    <script>
+        // Array con las 60 preguntas limpias (sin el número inicial para no duplicar)
+        const preguntas = [
+            "Tiendo a buscar el origen de los problemas", "Sufro las consecuencias de mis malas decisiones", "Me gustan los retos y no les temo",
+            "Tengo miedo a hacer el ridículo", "Me gustan los trabajos que implican competencia", "Soy muy tímido y me cuesta trabajo relacionarme con los demás",
+            "Me estreso con facilidad cuando tengo un problema", "Pienso en lo que puede ocurrir si tomo una mala decisión", "Pienso que no soy indispensable para nadie",
+            "Aprendo de mis errores", "Creo que los conocimientos que adquiero en la escuela me serán útiles en el futuro", "Falta comunicación en mi familia",
+            "Cuando tengo un problema pienso cómo solucionarlo", "Pienso mucho antes de tomar una decisión", "Me acepto tal como soy física y emocionalmente",
+            "Me gusta hacer cosas diferentes a los demás", "Acostumbro a hacer las cosas a cambio de recompensas inmediatas", "Prefiero que otros tomen la iniciativa al hablar conmigo",
+            "Dejo que otros solucionen los problemas por mi", "Soy capaz de tomar decisiones importantes sin ayuda", "Tengo una actitud positiva ante la vida",
+            "Me incomodan las cosas nuevas y prefiero la rutina", "El estudio es una gran herramienta para la vida", "Prefiero la comunicación cara a cara",
+            "Me siento capaz de resolver los conflictos que se me presenten", "Soy muy indeciso", "Lucho por alcanzar lo que quiero",
+            "Creo que puedo lograr lo que me propongo", "Tengo claro que es lo que quiero hacer", "Pido perdón cuando me equivoco",
+            "Considero que el tiempo lo soluciona todo", "Analizo o entiendo las consecuencias de cada alternativa antes de actuar", "Siento que soy un inutil",
+            "Me es difícil poner atención a los detalles", "Siento que voy sin rumbo por la vida", "Procuro no enojarme",
+            "Cuando tengo un conflicto con alguien procuro resolverlo inmediatamente", "Ser creativo me ayuda a la toma de decisiones", "Soy muy inseguro",
+            "Soy muy distraído", "Siento que fallo en todo lo que hago para lograr lo que quiero", "Por lo general estoy de buen humor",
+            "Investigo la raíz de los problemas que se me presentan", "Las personas piensan que aún no se tomar decisiones", "Creo que no puedo hacer nada bien",
+            "Hago preguntas cuando no entiendo las cosas", "Por más que me esfuerzo no puedo lograr lo que quiero", "Me gusta hacer favores a otros",
+            "Suelo dejarme llevar por mis emociones", "Soy cauteloso antes de tomar una decisión", "Tengo miedo de equivocarme",
+            "Los errores son aprendizaje para la vida", "Pierdo el sentido del por qué hago las cosas", "Me es difícil hacer y mantener la amistad con alguién",
+            "Me tensiona enfrentar los problemas por más pequeños que estos sean", "Me es difícil tomar mis propias decisiones", "Reconozco mis errores cuando me equivoco",
+            "Suelo deshacerme de las cosas aunque todavía sirvan", "Reconozco mis logros aunque otros no lo hagan", "Dependo de las redes sociales para comunicarme con los demás"
+        ];
+
+        // 1. DIBUJAR LAS PREGUNTAS
+        const wrapper = document.getElementById('questions-wrapper');
+        
+        preguntas.forEach((pregunta, index) => {
+            const num = index + 1;
+            const div = document.createElement('div');
+            div.className = 'question-item';
+            div.id = `question-${num}`;
+            
+            div.innerHTML = `
+                <p class="question-text">${num}. ${pregunta}</p>
+                <div class="options-wrapper">
+                    <label><input type="radio" name="q${num}" value="1"> 1</label>
+                    <label><input type="radio" name="q${num}" value="2"> 2</label>
+                    <label><input type="radio" name="q${num}" value="3"> 3</label>
+                    <label><input type="radio" name="q${num}" value="4"> 4</label>
+                    <label><input type="radio" name="q${num}" value="5"> 5</label>
+                </div>
+            `;
+            wrapper.appendChild(div);
+        });
+
+        // 2. VALIDACIÓN AL ENVIAR
+        document.getElementById('habilidades-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Detenemos el envío real para validar
+            
+            let allAnswered = true;
+            let firstUnanswered = null;
+
+            // Revisamos del 1 al 60
+            for (let i = 1; i <= preguntas.length; i++) {
+                const questionDiv = document.getElementById(`question-${i}`);
+                const isChecked = document.querySelector(`input[name="q${i}"]:checked`);
+
+                if (!isChecked) {
+                    allAnswered = false;
+                    questionDiv.classList.add('error'); // Pintamos de rojo
+                    if (!firstUnanswered) firstUnanswered = questionDiv; // Guardamos la primera que faltó
+                } else {
+                    questionDiv.classList.remove('error'); // Quitamos lo rojo si ya contestó
+                }
+            }
+
+            if (!allAnswered) {
+                // Mostrar alerta y hacer scroll suave hacia la primera pregunta sin contestar
+                document.getElementById('error-message').style.display = 'block';
+                firstUnanswered.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // Si todo está perfecto
+                document.getElementById('error-message').style.display = 'none';
+                alert('¡Excelente! Has contestado todas las preguntas. Encuesta enviada correctamente.');
+                window.location.href = 'habilidades.html'; // Lo regresamos al menú
+            }
+        });
+
+        // Evento extra: Quitar el color rojo en cuanto el usuario selecciona una opción
+        wrapper.addEventListener('change', function(e) {
+            if (e.target.type === 'radio') {
+                const container = e.target.closest('.question-item');
+                if (container) {
+                    container.classList.remove('error');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
