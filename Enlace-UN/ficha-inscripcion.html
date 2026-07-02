@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de inscripción - Enlace UN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-image">
+                    <img src="img/UNazul.png" alt="UN Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <h1>Universidad</h1>
+                    <p>del Norte</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                <li><a href="Horarios.html" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Horarios</span></a></li>
+                <li><a href="calificaciones.html" class="nav-link"><i class="fas fa-star"></i><span>Calificaciones</span></a></li>
+                <li><a href="kardex.html" class="nav-link"><i class="fas fa-book"></i><span>Kardex</span></a></li>
+                <li><a href="estado.html" class="nav-link"><i class="fas fa-wallet"></i><span>Estado de cuenta</span></a></li>
+                <li><a href="facturacion.html" class="nav-link"><i class="fas fa-tasks"></i><span>Facturacion</span></a></li>
+                <li><a href="realiza-pagos.html" class="nav-link"><i class="fas fa-file-alt"></i><span>Realiza tus pagos</span></a></li>
+                <li><a href="ficha-inscripcion.html" class="nav-link active"><i class="fas fa-file-contract"></i><span>Ficha de inscripción</span></a></li>
+                <li><a href="ficha-deposito.html" class="nav-link"><i class="fas fa-money-check-alt"></i><span>Ficha de deposito</span></a></li>
+                <li><a href="cambiar-contrasena.html" class="nav-link"><i class="fas fa-key"></i><span>Cambiar contraseña</span></a></li>
+                <li><a href="habilidades.html" class="nav-link"><i class="fas fa-brain"></i><span>Habilidades</span></a></li>
+                <li><a href="actualiza-foto.html" class="nav-link"><i class="fas fa-envelope"></i><span>Actualiza tu foto</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="icon-btn logout-btn" onclick="window.location.href='index.html'"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </nav>
+
+        <div class="page-container">
+            <div class="page-header">
+                <div>
+                    <h2 class="page-title">Ficha de inscripción</h2>
+                    <p class="page-subtitle">Consulta y revisa los datos de tu proceso de registro académico.</p>
+                </div>
+            </div>
+
+            <section class="service-detail-card detail-page-card">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <ul class="service-detail-list">
+                    <li>Tu matrícula se encuentra activa para el periodo actual.</li>
+                    <li>Las materias asignadas ya fueron validadas por tu unidad académica.</li>
+                    <li>Puedes descargar una copia de tu ficha para tus trámites.</li>
+                </ul>
+                <div class="service-inline-links">
+                    <a href="ficha-deposito.html">Ficha de deposito</a>
+                    <a href="cambiar-contrasena.html">Cambiar contraseña</a>
+                    <a href="habilidades.html">Habilidades</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="home.js"></script>
+</body>
+</html>
