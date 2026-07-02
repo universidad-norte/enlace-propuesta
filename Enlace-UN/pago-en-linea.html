@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago en Línea - Enlace UN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-container {
+            display: block !important; 
+        }
+
+        .payment-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            padding: 35px;
+            max-width: 850px;
+            margin: 30px auto;
+            width: 100%;
+        }
+
+        [data-theme="dark"] .payment-container {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        /* Encabezado con Logo Universitario */
+        .payment-logo-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #e2e8f0;
+            padding-bottom: 25px;
+        }
+
+        [data-theme="dark"] .payment-logo-header {
+            border-color: #334155;
+        }
+
+        .payment-logo-header img {
+            max-width: 280px;
+            height: auto;
+        }
+
+        /* Botón de Facturación */
+        .facturacion-wrapper {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .btn-facturacion {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-facturacion:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        [data-theme="dark"] .btn-facturacion {
+            background: #334155;
+            color: #f8fafc;
+            border-color: #475569;
+        }
+        [data-theme="dark"] .btn-facturacion:hover {
+            background: #475569;
+        }
+
+        /* Instrucciones de Uso */
+        .instructions-box {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .instructions-box {
+            background: #111827;
+            border-color: #1f2937;
+        }
+
+        .instructions-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e293b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        [data-theme="dark"] .instructions-box h3 { color: #f8fafc; }
+
+        .inst-red { color: #dc2626; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+        .inst-blue { color: #2563eb; font-weight: 500; font-size: 14px; margin-bottom: 12px; }
+        
+        [data-theme="dark"] .inst-red { color: #f87171; }
+        [data-theme="dark"] .inst-blue { color: #60a5fa; }
+
+        .inst-muted {
+            font-size: 13px;
+            color: #64748b;
+            font-style: italic;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        [data-theme="dark"] .inst-muted { border-color: #334155; color: #94a3b8; }
+
+        /* Tabla de Conceptos de Pago */
+        .table-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        [data-theme="dark"] .table-title { color: #f8fafc; }
+
+        .payment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .payment-table th {
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #cbd5e1;
+        }
+
+        [data-theme="dark"] .payment-table th {
+            background: #111827;
+            color: #cbd5e1;
+            border-color: #334155;
+        }
+
+        .payment-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        [data-theme="dark"] .payment-table td {
+            border-color: #334155;
+            color: #cbd5e1;
+        }
+
+        /* Enlace de Selección dinámico */
+        .btn-toggle-concept {
+            color: #2563eb;
+            text-decoration: underline;
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .btn-toggle-concept:hover {
+            color: #1d4ed8;
+        }
+
+        [data-theme="dark"] .btn-toggle-concept { color: #60a5fa; }
+        [data-theme="dark"] .btn-toggle-concept:hover { color: #93c5fd; }
+
+        .btn-toggle-concept.deselected {
+            color: #64748b;
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* Inputs de Importe */
+        .input-importe {
+            width: 110px;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f172a;
+            text-align: right;
+            background-color: #f8fafc;
+        }
+
+        [data-theme="dark"] .input-importe {
+            background-color: #0f172a;
+            border-color: #475569;
+            color: #f8fafc;
+        }
+
+        /* Fila de Total */
+        .total-row {
+            background: #f8fafc;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        [data-theme="dark"] .total-row { background: #111827; }
+
+        .total-label {
+            font-size: 16px;
+            font-weight: 800;
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0f172a;
+        }
+        [data-theme="dark"] .total-label { color: #f8fafc; }
+
+        .total-amount {
+            font-size: 20px;
+            font-weight: 800;
+            color: #10b981;
+            text-align: right;
+        }
+
+        /* Formulario Datos del Tarjetahabiente */
+        .form-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        [data-theme="dark"] .form-title { color: #f8fafc; border-color: #334155; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+        }
+        [data-theme="dark"] .form-group label { color: #cbd5e1; }
+
+        .form-control {
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            background: #ffffff;
+            color: #0f172a;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-control:focus {
+            border-color: #2563eb;
+        }
+
+        [data-theme="dark"] .form-control {
+            background: #0f172a;
+            border-color: #475569;
+            color: #f8fafc;
+        }
+        [data-theme="dark"] .form-control:focus { border-color: #60a5fa; }
+
+        /* Botón de envío final */
+        .submit-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-submit-payment {
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 15px 45px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-submit-payment:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-image">
+                    <img src="img/UNazul.png" alt="UN Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <h1>Universidad</h1>
+                    <p>del Norte</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li><a href="home.html" class="nav-link"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                <li><a href="Horarios.html" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Horarios</span></a></li>
+                <li><a href="calificaciones.html" class="nav-link"><i class="fas fa-star"></i><span>Calificaciones</span></a></li>
+                <li><a href="kardex.html" class="nav-link"><i class="fas fa-book"></i><span>Kardex</span></a></li>
+                <li><a href="estado.html" class="nav-link"><i class="fas fa-wallet"></i><span>Estado de cuenta</span></a></li>
+                <li><a href="facturacion.html" class="nav-link"><i class="fas fa-tasks"></i><span>Facturacion</span></a></li>
+                <li><a href="realiza-pagos.html" class="nav-link active"><i class="fas fa-file-alt"></i><span>Realiza tus pagos</span></a></li>
+                <li><a href="ficha-inscripcion.html" class="nav-link"><i class="fas fa-file-contract"></i><span>Ficha de inscripción</span></a></li>
+                <li><a href="ficha-deposito.html" class="nav-link"><i class="fas fa-money-check-alt"></i><span>Ficha de deposito</span></a></li>
+                <li><a href="cambiar-contrasena.html" class="nav-link"><i class="fas fa-key"></i><span>Cambiar contraseña</span></a></li>
+                <li><a href="habilidades.html" class="nav-link"><i class="fas fa-brain"></i><span>Habilidades</span></a></li>
+                <li><a href="actualiza-foto.html" class="nav-link"><i class="fas fa-envelope"></i><span>Actualiza tu foto</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="icon-btn logout-btn" onclick="window.location.href='index.html'"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </nav>
+
+        <div class="page-container">
+            <div class="page-header">
+                <div>
+                    <h2 class="page-title">Pago en Línea</h2>
+                    <p class="page-subtitle">Selecciona tus conceptos de pago vigentes y procesa tu pago de forma segura.</p>
+                </div>
+            </div>
+
+            <section class="payment-container">
+                
+                <div class="payment-logo-header">
+                    <img src="img/UNazul.png" alt="Universidad del Norte">
+                </div>
+
+                <div class="facturacion-wrapper">
+                    <a href="facturacion.html" class="btn-facturacion">
+                        <i class="fas fa-receipt"></i> Acceder a Facturación
+                    </a>
+                </div>
+
+                <div class="instructions-box">
+                    <h3>Instrucciones de Uso</h3>
+                    <p class="inst-red">Quita o Selecciona los Adeudos a Pagar.</p>
+                    <p class="inst-blue">O si prefieres, puedes indicar el importe en el(los) recuadro(s) del Lado Derecho en la Columna Importe.</p>
+                    <p class="inst-red">*** Puedes Pagar Con Tarjeta de Crédito o Débito. ***</p>
+                    <p class="inst-muted">*** Si tu intento de Pago TE DA PROBLEMAS, Intenta con otro navegador ***</p>
+                </div>
+
+                <div class="table-title">
+                    <i class="fas fa-list-check"></i> Conceptos de Pago (45093)
+                </div>
+                <table class="payment-table">
+                    <thead>
+                        <tr>
+                            <th>Periodo</th>
+                            <th>Descripción</th>
+                            <th style="text-align: center;">C</th>
+                            <th>Adeudo</th>
+                            <th style="text-align: right;">Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="concept-row" data-base-amount="600">
+                            <td>202602</td>
+                            <td>ELTESORODELLINCEECOS</td>
+                            <td style="text-align: center;">1</td>
+                            <td>
+                                <button type="button" class="btn-toggle-concept" onclick="toggleConcept(this, 600)">
+                                    Quitar/Seleccionar (600)
+                                </button>
+                            </td>
+                            <td style="text-align: right;">
+                                <input type="number" class="input-importe" value="600" min="0" oninput="calculateTotalTotal()">
+                            </td>
+                        </tr>
+                        <tr class="concept-row" data-base-amount="120">
+                            <td>202602</td>
+                            <td>VISITAEMPRESA</td>
+                            <td style="text-align: center;">1</td>
+                            <td>
+                                <button type="button" class="btn-toggle-concept" onclick="toggleConcept(this, 120)">
+                                    Quitar/Seleccionar (120)
+                                </button>
+                            </td>
+                            <td style="text-align: right;">
+                                <input type="number" class="input-importe" value="120" min="0" oninput="calculateTotalTotal()">
+                            </td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="4" class="total-label">Total a Pagar:</td>
+                            <td id="total-pagar" class="total-amount">$720.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-title">
+                    <i class="fas fa-address-card"></i> Datos del Tarjetahabiente
+                </div>
+                <form id="paymentForm" onsubmit="event.preventDefault(); alert('Procesando pago seguro...');">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="calle">Calle y Número:</label>
+                            <input type="text" id="calle" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad:</label>
+                            <input type="text" id="ciudad" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <input type="text" id="estado" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="cp">Código Postal:</label>
+                            <input type="text" id="cp" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo Electrónico:</label>
+                            <input type="email" id="correo" class="form-control" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="submit-wrapper">
+                        <button type="submit" class="btn-submit-payment">
+                            <i class="fas fa-lock"></i> Pagar con Tarjeta
+                        </button>
+                    </div>
+                </form>
+
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function toggleConcept(button, amount) {
+            // Buscamos el input numérico correspondiente a esta fila
+            const row = button.closest('.concept-row');
+            const input = row.querySelector('.input-importe');
+            
+            // Evaluamos si el concepto está activo o no basándonos en su valor actual
+            if (parseFloat(input.value) > 0) {
+                // Si tiene valor, lo quitamos (ponemos en 0) y tachamos el botón
+                input.value = 0;
+                button.classList.add('deselected');
+            } else {
+                // Si estaba en 0, le regresamos su valor completo y destachamos el botón
+                input.value = amount;
+                button.classList.remove('deselected');
+            }
+            
+            // Ejecutamos el recálculo general del total
+            calculateTotalTotal();
+        }
+
+        function calculateTotalTotal() {
+            let currentTotal = 0;
+            const inputs = document.querySelectorAll('.input-importe');
+            
+            inputs.forEach(input => {
+                const val = parseFloat(input.value) || 0;
+                currentTotal += val;
+                
+                // Sincronización visual del botón por si el usuario editó a mano a 0
+                const row = input.closest('.concept-row');
+                const button = row.querySelector('.btn-toggle-concept');
+                if (val === 0) {
+                    button.classList.add('deselected');
+                } else {
+                    button.classList.remove('deselected');
+                }
+            });
+            
+            // Imprimimos el total formateado en pantalla
+            document.getElementById('total-pagar').innerText = '$' + currentTotal.toFixed(2);
+        }
+    </script>
+    <script src="home.js"></script>
+</body>
+</html>
