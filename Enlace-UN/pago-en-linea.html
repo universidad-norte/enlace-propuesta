@@ -332,6 +332,91 @@
             background: #1d4ed8;
             transform: translateY(-2px);
         }
+
+        @media (max-width: 900px) {
+            .payment-container {
+                padding: 24px;
+                margin: 24px 16px;
+            }
+
+            .payment-logo-header img {
+                max-width: 220px;
+            }
+
+            .btn-facturacion {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .instructions-box {
+                text-align: left;
+            }
+
+            .payment-table th,
+            .payment-table td {
+                padding: 12px 10px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .payment-container {
+                padding: 20px 18px;
+                margin: 18px 12px;
+            }
+
+            .payment-logo-header {
+                padding-bottom: 18px;
+                margin-bottom: 16px;
+                border-bottom-width: 1px;
+            }
+
+            .payment-logo-header img {
+                max-width: 180px;
+                width: 100%;
+                height: auto;
+            }
+
+            .payment-table {
+                display: block;
+                overflow-x: auto;
+                width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .payment-table thead,
+            .payment-table tbody,
+            .payment-table tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            .payment-table th,
+            .payment-table td {
+                white-space: nowrap;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group {
+                width: 100%;
+            }
+
+            .btn-submit-payment {
+                width: 100%;
+                padding: 14px 20px;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+
+            .page-subtitle {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>
