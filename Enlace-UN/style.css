@@ -259,6 +259,86 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
+[data-theme="dark"] .general-page-body {
+    background: linear-gradient(135deg, #0b1b4d 0%, #111827 100%);
+}
+
+[data-theme="dark"] .content-container {
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .page-hero-title {
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .page-hero-copy {
+    color: #a8b4c5;
+}
+
+[data-theme="dark"] .video-card,
+[data-theme="dark"] .community-card,
+[data-theme="dark"] .community-highlight,
+[data-theme="dark"] .content-page,
+[data-theme="dark"] .content-box,
+[data-theme="dark"] .sidebar-box,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .card-box,
+[data-theme="dark"] .news-card,
+[data-theme="dark"] .info-card-panel {
+    background: rgba(15, 23, 42, 0.82);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 32px rgba(2, 6, 23, 0.45);
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .video-thumb {
+    background: linear-gradient(135deg, #162348 0%, #0b1b4d 100%);
+}
+
+[data-theme="dark"] .video-card h3,
+[data-theme="dark"] .info-card-panel h3,
+[data-theme="dark"] .community-card h2,
+[data-theme="dark"] .community-highlight h2,
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .page-section-title,
+[data-theme="dark"] .info-heading,
+[data-theme="dark"] .news-title {
+    color: #f5f7fb;
+}
+
+[data-theme="dark"] .video-card p,
+[data-theme="dark"] .info-card-panel p,
+[data-theme="dark"] .community-card p,
+[data-theme="dark"] .community-list,
+[data-theme="dark"] .community-highlight p,
+[data-theme="dark"] .main-article p,
+[data-theme="dark"] .lead-text,
+[data-theme="dark"] .para-text,
+[data-theme="dark"] .caption-box,
+[data-theme="dark"] .news-excerpt,
+[data-theme="dark"] .news-date {
+    color: #a8b4c5;
+}
+
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .page-section-title,
+[data-theme="dark"] .sidebar-heading,
+[data-theme="dark"] .news-date {
+    border-color: rgba(200, 16, 46, 0.5);
+}
+
+[data-theme="dark"] .main-article h3,
+[data-theme="dark"] .info-heading {
+    color: #dbeafe;
+}
+
+[data-theme="dark"] .img-placeholder,
+[data-theme="dark"] .img-display {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+}
+
 /* FOOTER */
 .footer{background:#101c35;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-quote{font-size:10px;color:rgba(255,255,255,0.3);font-style:italic;max-width:520px;line-height:1.5;font-family:'Inter',sans-serif}
@@ -408,28 +488,30 @@
 
 /* --- Clases específicas del layout con sidebar --- */
 .content-wrapper {
-    max-width: 1000px;
-    margin: 40px auto;
+    max-width: 980px;
+    margin: 36px auto 48px;
     padding: 0 20px;
     display: flex;
-    gap: 40px;
+    gap: 24px;
     width: 100%;
     position: relative;
-    z-index: 2; /* Para quedar por encima de los orbes del main layout */
+    z-index: 2;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .content-sidebar {
-    width: 240px;
+    width: 170px;
     flex-shrink: 0;
 }
 
 .back-btn-wrap {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .back-btn-wrap a {
     text-decoration: none;
-    display: block;
+    display: inline-block;
 }
 
 .sidebar-box {
@@ -456,17 +538,34 @@
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
-    padding: 45px;
+    padding: 40px 42px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-back-btn {
+    width: auto;
+    min-width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .page-section-title {
     color: #1b2d5b;
     font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
     margin-bottom: 8px;
     letter-spacing: -0.01em;
+    text-align: left;
 }
 
 .page-section-sub {
@@ -474,7 +573,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     font-weight: 600;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     display: block;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -483,10 +582,10 @@
 .info-heading {
     color: #1b2d5b;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
-    margin-top: 40px;
-    margin-bottom: 15px;
+    margin-top: 32px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -500,7 +599,7 @@
 .para-text {
     color: #475569;
     line-height: 1.75;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 15px;
     font-family: 'Inter', sans-serif;
 }
@@ -558,9 +657,199 @@
 }
 
 /* ============================================
+   PÁGINAS DE CONTENIDO: VIDEOS Y COMUNIDAD
+   ============================================ */
+.general-page-body {
+    background: #f8fafc;
+    padding: 0;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 32px 56px;
+    color: #1f2937;
+}
+
+.page-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #1b2d5b;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.page-hero-copy {
+    max-width: 760px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 0;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.video-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+}
+
+.video-thumb {
+    background: linear-gradient(135deg, #1b2d5b 0%, #0f1d3d 100%);
+    height: 170px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.video-card h3 {
+    margin: 20px 0 10px;
+    color: #1b2d5b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.video-card p {
+    color: #475569;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.section-cards {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.info-card-panel {
+    background: #f8fafc;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+}
+
+.info-card-panel h3 {
+    color: #1b2d5b;
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.info-card-panel p {
+    color: #475569;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.community-grid {
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.community-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+.community-card h2 {
+    color: #1b2d5b;
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.community-card p {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.community-section {
+    margin-top: 40px;
+    display: grid;
+    gap: 24px;
+}
+
+.community-highlight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 28px;
+}
+
+.community-highlight h2 {
+    color: #1b2d5b;
+    margin-bottom: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.community-list {
+    color: #475569;
+    line-height: 1.8;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.community-highlight p {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* ============================================
    DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
    ============================================ */
 @media screen and (max-width: 850px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 16px;
+        margin: 24px auto 36px;
+    }
+
+    .content-sidebar {
+        width: 100%;
+    }
+
+    .back-btn-wrap {
+        margin-bottom: 8px;
+    }
+
+    .content-box {
+        padding: 24px 20px;
+    }
     /* Poner los paneles uno debajo del otro */
     .body {
         flex-direction: column;
@@ -650,6 +939,14 @@
         padding: 20px;
         gap: 10px;
     }
+
+    .content-container {
+        padding: 32px 20px 40px;
+    }
+
+    .page-hero-title {
+        font-size: 28px;
+    }
 }
 /* ============================================
    SECCIÓN DE NOTICIAS
@@ -657,13 +954,28 @@
 
 /* Contenedor principal de la página de noticias */
 .news-container {
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 980px;
+    margin: 36px auto 48px;
     padding: 0 24px;
     width: 100%;
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.news-container .content-box {
+    max-width: 760px;
+    width: 100%;
+    margin: 24px auto 0;
+    padding: 32px 36px;
+}
+
+.news-container .page-section-title {
+    margin-bottom: 6px;
+}
+
+.news-container .page-section-sub {
+    margin-bottom: 24px;
 }
 
 /* Cuadrícula de tarjetas */

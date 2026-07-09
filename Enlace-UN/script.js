@@ -29,8 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const passwordPorDefecto = "Uv." + matricula; // Construimos la contraseña que debería ser
 
             // VALIDACIÓN 2: Contraseña por defecto o contraseña cambiada
-            // Si no es la contraseña por defecto, pedimos que al menos tenga 8 caracteres (asumiendo que si la cambió, es una contraseña real)
-            if (password !== passwordPorDefecto && password.length < 8) {
+            const storedPassword = localStorage.getItem("enlaceCurrentPassword") || "";
+            const isValidPassword = password === passwordPorDefecto || password === storedPassword || password.length >= 8;
+
+            if (!isValidPassword) {
                 alert(`Error en la contraseña.\n\nRecuerda que si eres nuevo, tu contraseña es "Uv." seguido de tus 5 números (Ejemplo: ${passwordPorDefecto}).\nSi ya la cambiaste, asegúrate de escribirla correctamente.`);
                 return; // Detiene la ejecución
             }

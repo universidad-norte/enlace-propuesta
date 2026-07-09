@@ -308,10 +308,8 @@
                 localStorage.setItem('enlaceCurrentPassword', newPassword);
                 messageBox.classList.add('success');
                 messageBox.textContent = 'La contraseña ha sido cambiada exitosamente.';
-                inputs.forEach(function (input) {
-                    input.value = '';
-                });
-                currentPasswordInput.focus();
+                alert('La contraseña ha sido cambiada exitosamente.');
+                window.location.href = 'index.html';
             });
         });
     </script>
