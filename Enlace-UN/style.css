@@ -42,10 +42,7 @@
 .announcement-arrow{margin-left:auto;font-size:12px;color:rgba(255,255,255,0.5)}
 
 /* BODY */
-.body{flex:1;display:flex}
-
-/* LEFT PANEL */
-.left-panel{flex:1;background:#1b2d5b;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 48px;overflow:hidden;gap:32px}
+.body{flex:1;display:flex;justify-content:center;align-items:center;background:#1b2d5b;min-height:calc(100vh - 200px)}
 
 .bg-pattern{position:absolute;inset:0;opacity:0.04}
 .brand-block{z-index:1;display:flex;flex-direction:column;align-items:center;gap:24px;width:100%}
@@ -53,7 +50,6 @@
 .enlace-card{background:rgba(255,255,255,0.97);border-radius:20px;padding:28px 36px;display:flex;align-items:center;gap:20px;box-shadow:0 20px 60px rgba(0,0,0,0.4);width:100%;max-width:340px}
 .enlace-icon-wrap{width:64px;height:64px;background:#1b2d5b;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .enlace-card-image{width:100%;height:100%;object-fit:contain;border-radius:10px}
-.enlace-info{}
 .enlace-title{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:#1b2d5b;letter-spacing:-0.01em;line-height:1}
 .enlace-title span{color:#c8102e}
 .enlace-subtitle{font-size:11px;color:#8a9ab5;font-family:'Montserrat',sans-serif;font-weight:500;letter-spacing:0.04em;margin-top:4px;text-transform:uppercase}
@@ -69,7 +65,7 @@
 .glow-orb2{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,0.1) 0%,transparent 70%);top:-50px;right:-30px;pointer-events:none}
 
 /* RIGHT PANEL */
-.right-panel{width:400px;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:44px 40px;border-left:1px solid #e5eaf2}
+.right-panel{width:400px;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:44px 40px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.25);margin:40px 0}
 
 .login-top{margin-bottom:30px}
 .login-eyebrow{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c8102e;margin-bottom:8px}
@@ -77,13 +73,13 @@
 .login-sub{font-size:13px;color:#6b7a8d;line-height:1.5}
 
 .field-wrap{margin-bottom:18px}
-.field-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#8a9ab5;margin-bottom:7px;display:flex;align-items:center;gap:4px}
+.field-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#5b6b85;margin-bottom:7px;display:flex;align-items:center;gap:4px}
 .field-input-row{position:relative;display:flex;align-items:center}
 .field-input-row i{position:absolute;left:13px;font-size:16px;color:#c0cad8}
 .field-input-row input{width:100%;height:46px;border:1.5px solid #e0e6ef;border-radius:10px;padding:0 14px 0 40px;font-family:'Inter',sans-serif;font-size:14px;color:#1a2340;background:#f8fafc;outline:none;transition:all 0.2s}
 .field-input-row input:focus{border-color:#1b2d5b;background:#fff;box-shadow:0 0 0 3px rgba(27,45,91,0.08)}
 .field-input-row input::placeholder{color:#c5cedd}
-.field-hint{font-size:11px;color:#b0bac8;margin-top:5px;font-family:'Montserrat',sans-serif;display:flex;align-items:center;gap:4px}
+.field-hint{font-size:11px;color:#8a97a8;margin-top:5px;font-family:'Montserrat',sans-serif;display:flex;align-items:center;gap:4px}
 .field-hint code{background:#eef2f8;color:#1b2d5b;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600}
 
 .btn-primary{width:100%;height:48px;background:#1b2d5b;border:none;border-radius:10px;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.05em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;transition:all 0.2s;text-transform:uppercase}
@@ -92,12 +88,12 @@
 
 .or-row{display:flex;align-items:center;gap:12px;margin:20px 0}
 .or-row::before,.or-row::after{content:'';flex:1;height:1px;background:#edf0f5}
-.or-row span{font-size:11px;font-family:'Montserrat',sans-serif;color:#c0cad8;text-transform:uppercase;letter-spacing:0.06em}
+.or-row span{font-size:11px;font-family:'Montserrat',sans-serif;color:#8a97a8;text-transform:uppercase;letter-spacing:0.06em}
 
 .btn-secondary{width:100%;height:44px;background:#fff;border:1.5px solid #d4dbe8;border-radius:10px;color:#1b2d5b;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;letter-spacing:0.03em}
 .btn-secondary:hover{border-color:#1b2d5b;background:#f5f8ff}
 
-.recover-note{font-size:11px;color:#9ba8b8;text-align:center;margin-top:10px;line-height:1.6;font-family:'Inter',sans-serif}
+.recover-note{font-size:11px;color:#71809a;text-align:center;margin-top:10px;line-height:1.6;font-family:'Inter',sans-serif}
 
 .privacy-strip{margin-top:24px;padding-top:18px;border-top:1px dashed #edf0f5;font-size:10px;color:#b0bac8;text-align:center;line-height:1.6;font-family:'Inter',sans-serif;display:flex;align-items:flex-start;gap:6px}
 .privacy-strip i{font-size:12px;flex-shrink:0;margin-top:1px}
@@ -142,10 +138,6 @@
 
 [data-theme="dark"] .announcement {
     background: linear-gradient(90deg, #8b0a1f 0%, #6d0818 100%);
-}
-
-[data-theme="dark"] .left-panel {
-    background: #0b1b4d;
 }
 
 [data-theme="dark"] .enlace-card {
@@ -648,6 +640,7 @@
     object-fit: contain;
     margin-right: 12px; /* separación del texto */
     margin-left: 8px;   /* margen izquierdo */
+    border-radius: 6px; 
 }
 
 .logo-container {
@@ -857,15 +850,8 @@
 
     /* Ajustar panel derecho (Formulario) para que tome todo el ancho */
     .right-panel {
-        width: 100%;
-        padding: 40px 24px;
-        border-left: none; /* Quitamos el borde izquierdo */
-        border-top: 1px solid #e5eaf2; /* Lo pasamos arriba */
-    }
-
-    /* Ajustar panel izquierdo (Logo) */
-    .left-panel {
-        padding: 40px 24px;
+    width: 90%;
+    padding: 32px 20px;
     }
 
     /* Ajustar encabezado para que no se desborde */
